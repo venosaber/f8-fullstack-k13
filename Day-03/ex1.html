@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form sign up</title>
+    <style>
+        form {
+            background-color: lightgray;
+            width: 50%;
+            margin: auto;
+            padding: 10px;
+        }
+
+        span {
+            color: gray;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        td {
+            width: 50%;
+        }
+
+        input {
+            width: 80%;
+        }
+
+        select {
+            width: 82%;
+        }
+
+        #submit {
+            width: 90%;
+            margin: 20px 0;
+            padding: 10px;
+            border: 0;
+            border-radius: 4px;
+            background-color: #02b107;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<form action = "https://api-gateway.fullstack.edu.vn/action_page.php" method = "post">
+    <h1>Try a free sample</h1>
+    <p>Sign up to get a coupon you can redeem at your nearest Dancing Goat cafe for a sample of the Colombia Carlos
+        Imbachi coffee. We'll also make sure you don't miss out on news introducing the new coffees that we add to our
+        store regularly.</p>
+    <table width="100%">
+        <tr>
+            <td>
+                <label for="fname">First name</label><br>
+                <input id="fname" type="text" name="fname" placeholder="John">
+            </td>
+            <td>
+                <label for="lname">Last name</label><br>
+                <input id="lname" type="text" name="lname" placeholder="Smith">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email address</label><br>
+                <input id="email" type="email" name="email" placeholder="john@example.com">
+            </td>
+            <td>
+                <label for="address">Address</label><br>
+                <input id="address" type="text" name="address" placeholder="Silk St">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="city">City</label><br>
+                <input id="city" type="text" name="city" placeholder="London">
+            </td>
+            <td>
+                <label for="state">State <span>(optional)</span></label><br>
+                <input id="state" type="text" name="state">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="zip-code">ZIP code</label><br>
+                <input id="zip-code" type="text" name="zip-code" placeholder="EC2Y8DS">
+            </td>
+            <td>
+                <label for="country">Country</label><br>
+                <select id="country" name="country">
+                    <option value="united-kingdom" selected>United Kingdom</option>
+                    <option value="viet-nam">Viet Nam</option>
+                    <option value="germany">Germany</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input id="submit" type="submit" value="SEND ME FREE COFFEE">
+</form>
+
+</body>
+</html>

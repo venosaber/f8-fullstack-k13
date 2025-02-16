@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Login</title>
+    <style>
+        button {
+            margin-top: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<form action = "https://api-gateway.fullstack.edu.vn/action_page.php" method = "post">
+    <table>
+        <tr>
+            <td>
+                <label for="username">Username:</label>
+            </td>
+            <td>
+                <input id="username" type="text" name="username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password:</label>
+            </td>
+            <td>
+                <input id="password" type="password" name="password">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="city">City of <br/>Employment:</label>
+            </td>
+            <td>
+                <input id="city" type="text" name="city">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="server">Web server:</label>
+            </td>
+            <td>
+                <select id="server" name="server">
+                    <option value="" selected disabled>&#8213;Choose a server&#8213;</option>
+                    <option value="server-1">Server 1</option>
+                    <option value="server-2">Server 2</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Please specify <br/>your role:</span>
+            </td>
+            <td>
+                <label>
+                    <input type="radio" name="role" value="admin"> Admin
+                </label><br/>
+                <label>
+                    <input type="radio" name="role" value="engineer"> Engineer
+                </label><br/>
+                <label>
+                    <input type="radio" name="role" value="manager"> Manager
+                </label><br/>
+                <label>
+                    <input type="radio" name="role" value="guest"> Guest
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Single Sign-on <br/>to the following:</label>
+            </td>
+            <td>
+                <label>
+                    <input type="checkbox" name="sso-option[]" value="mail">Mail
+                </label><br/>
+                <label>
+                    <input type="checkbox" name="sso-option[]" value="payroll">Payroll
+                </label><br/>
+                <label>
+                    <input type="checkbox" name="sso-option[]" value="self-service">Self-service
+                </label><br/>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit">Login</button>
+                <button type="reset">Reset</button>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

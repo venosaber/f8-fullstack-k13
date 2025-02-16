@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Contact</title>
+    <style>
+        form {
+            background-color: lightgray;
+            margin: auto;
+            padding: 10px;
+        }
+
+        input {
+            border: 1px;
+            border-radius: 4px;
+            height: 20px;
+            margin: 0 40px 20px 0;
+        }
+
+        textarea {
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            color: white;
+            font-weight: bold;
+            background-color: dimgray;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+<form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="post">
+    <h1>Get in touch with us by filling contact form below</h1>
+    <table>
+        <tr>
+            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+        </tr>
+    </table>
+    <textarea name="message" placeholder="*Your message here" rows="10" cols="80"></textarea><br/>
+    <button type="submit">Send message</button>
+    <span>*Please fill all require form field, thanks!</span>
+</form>
+</body>
+</html>
