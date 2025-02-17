@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Form Contact</title>
     <style>
-        form {
+        #contact-form {
             background-color: lightgray;
             margin: auto;
             padding: 10px;
@@ -31,20 +31,25 @@
     </style>
 </head>
 <body>
-<form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="post">
-    <h1>Get in touch with us by filling contact form below</h1>
-    <table>
-        <tr>
-            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
-            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
-        </tr>
-        <tr>
-            <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
-        </tr>
-    </table>
-    <textarea name="message" placeholder="*Your message here" rows="10" cols="80"></textarea><br/>
-    <button type="submit">Send message</button>
-    <span>*Please fill all require form field, thanks!</span>
-</form>
+<div id="contact-form">
+    <h2>Get in touch with us by filling contact form below</h2>
+    <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="post">
+        <!--    Create a table with 2 rows * 2 columns to align the input elements -->
+        <table>
+            <tr>
+                <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+                <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+            </tr>
+            <tr>
+                <td><input type="text" name="fullname[]" placeholder="*Enter your full name"></td>
+            </tr>
+        </table>
+        <textarea name="message" placeholder="*Your message here" rows="10" cols="80"></textarea>
+        <div>
+            <button type="submit">Send message</button>
+            <span>*Please fill all require form field, thanks!</span>
+        </div>
+    </form>
+</div>
 </body>
 </html>
