@@ -1,0 +1,41 @@
+form {
+    background-color: #2C3E50;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h2 span {
+    color: #f39c12;
+}
+
+h2, p {
+    color: #ffffff;
+}
+
+input, button {
+    border: none;
+    border-radius: 4px;
+    padding: 10px;
+    width: 200px;
+}
+
+button {
+    background-color: #ffd500;
+    font-weight: bold;
+}
+
+/*Change the color of input's placeholder while hovering form element*/
+form:hover input::placeholder {
+    color: #f39c12;
+}
+
+/*Change the color of input's background while hovering form element*/
+form:hover input {
+    background-color: #dddddd;
+}
+
+/*Change the color of button's background and text while hovering form element*/
+form:hover button {
+    background-color: #f39c12;
+    color: #ffffff;
+}
