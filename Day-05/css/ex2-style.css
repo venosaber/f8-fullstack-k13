@@ -1,0 +1,61 @@
+h2, h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #222222;
+}
+
+h2 + div, h3 + div {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+h2 + div {
+    color: #444444;
+    margin-bottom: 50px;
+}
+
+h3 + div {
+    color: #999999;
+}
+
+.icon {
+    /*put the container of the icon at the center*/
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    /*make the border of the container look like a circle*/
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /*define the thickness, style and color of the border*/
+    border: 1px solid #f2a93b;
+}
+
+.icon i {
+    /*position the icon*/
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /*define the size and color of the icon*/
+    font-size: 30px;
+    color: #f2a93b;
+}
+
+/* CSS for button */
+h3 + div + div {
+    text-align: center;
+}
+
+button {
+    background-color: #f2a93b;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+}
+
+td {
+    border: 3px solid #f0f0f0;
+    align-content: center;
+}

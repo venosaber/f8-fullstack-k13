@@ -1,0 +1,68 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Do not display the checkbox*/
+input {
+    display: none;
+}
+
+/* Display the label like a block element*/
+label {
+    display: block;
+    background-color: #d95925;
+    color: #ffffff;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Replace the checkbox with the "+" or "-" symbol*/
+input + label::before {
+    content: "+";
+    color: #ffffff;
+    font-weight: bolder;
+    font-size: 20px;
+    margin: 10px;
+}
+
+/* If checked -> "-", not checked => "+"*/
+input:checked + label::before {
+    content: "-";
+}
+
+/* By default, the content is hidden */
+section {
+    display: none;
+}
+
+/* When the input is checked, the content will be visible */
+input:checked + label + section {
+    display: block;
+    margin-left: 10px;
+    color: #444444;
+    line-height: 1.5em;
+}
+
+/* Remove the default list-style of ol as 1. 2. */
+section ol {
+    padding: 0;
+    margin: 0 0 0 10px;
+    list-style-type: none;
+}
+
+/* Modify the list-style to be like 1) 2) 3) ... */
+section ol li {
+    counter-increment: my-counter;
+}
+
+section ol li::before {
+    content: counter(my-counter) ") ";
+}
+
+p {
+    margin: 0 0 20px 10px;
+}
+
+
+
