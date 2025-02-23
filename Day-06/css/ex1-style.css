@@ -1,0 +1,156 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.services {
+    font-family: Lato, sans-serif;
+    color: #888888;
+    padding: 20px 30px;
+    border: 1px solid #000000;
+    width: 50%;
+    margin: 20px auto;
+}
+
+h2 {
+    font-family: Lobster, sans-serif;
+    font-size: 36px;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #333333;
+}
+
+h2 + p span {
+    color: #ff0000;
+}
+
+form {
+    margin-top: 20px;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 20px;
+    /* in normal states, border color is gray */
+    border: 1px solid #aaaaaa;
+    display: flex;
+    align-items: stretch;
+}
+
+/* while the form-group is hovered or focused or active, the border changes to black */
+.form-group:hover, .form-group:focus, .form-group:active {
+    border-color: #000000;
+}
+
+.icon-container {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    /* in normal states, icon container is gray */
+    background-color: #aaaaaa;
+}
+
+/* while the form-group is hovered or focused or active, the icon container changes to black */
+.form-group:hover .icon-container, .form-group:focus .icon-container, .form-group:active .icon-container {
+    background-color: #000000;
+}
+
+/* put the icon at the center of the icon container */
+.icon-container i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.icon-ending {
+    display: inline-block;
+    position: relative;
+}
+
+.icon-ending i {
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    transform: translateY(-50%);
+}
+
+.textarea-icon i {
+    top: 10%;
+}
+
+/* erase the border and outline */
+.form-group input, select, textarea {
+    border-style: none;
+    outline-style: none;
+    display: inline-block;
+    padding: 10px;
+    width: 90%;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+textarea {
+    resize: none;
+}
+
+.white--text {
+    color: #ffffff;
+}
+
+#submit-group {
+    margin: 40px 0 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#submit-group label {
+    margin-left: 10px;
+}
+
+#submit-group button {
+    padding: 10px 30px;
+    background-color: #ff4500;
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+}
+
+/* By default, the note is not shown */
+.note {
+    display: none;
+}
+
+/* The note will appear when the form-group is focused or active */
+.form-group:focus .note, .form-group:active .note {
+    display: block;
+    padding: 10px;
+    margin: 10px 20px;
+    position: absolute;
+    bottom: 105%;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/* Create a black triangle right below the note element */
+.form-group:focus .note::after, .form-group:active .note::after {
+    display: block;
+    position: absolute;
+    top: 100%;
+    content: "";
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #000000 transparent transparent transparent;
+    margin-left: 20px;
+}
+
+
+
+

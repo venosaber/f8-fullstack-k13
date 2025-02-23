@@ -1,0 +1,107 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: #ebf5fe;
+    font-family: "Roboto Light", sans-serif;
+    color: #666666;
+    margin: 10px 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.services {
+    background-color: #ffffff;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 10px;
+    max-width: 30%;
+}
+
+/* when the .services is hovered, the border changes to red */
+.services:hover {
+    border: 3px solid #ff0000;
+}
+
+/* align the div.icon and h3 */
+.icon-heading {
+    display: flex;
+    align-items: center;
+}
+
+/* make a circle to surround the icon*/
+.icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border-style: solid;
+    border-color: transparent;
+    position: relative;
+}
+
+/* put the icon at the center of the circle*/
+.icon i {
+    color: #ffffff;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h3 {
+    color: #000000;
+    margin: 10px;
+}
+
+.services p {
+    line-height: 1.5em;
+    margin-bottom: 15px;
+}
+
+.learn-more {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* background colors and shadows for icons */
+.pink--bg {
+    background-color: rgb(227, 116, 94);
+    box-shadow: 1px 4px 10px rgba(227, 116, 94, 0.4);
+}
+
+.seagreen--bg {
+    background-color: rgb(60, 179, 113);
+    box-shadow: 1px 4px 10px rgba(60, 179, 113, 0.4);
+}
+
+.orange--bg {
+    background-color: rgb(255, 165, 0);
+    box-shadow: 1px 4px 10px rgba(255, 165, 0, 0.4);
+}
+
+.blue--bg {
+    background-color: rgb(0, 0, 255, 0.4);
+    box-shadow: 1px 4px 10px rgba(0, 0, 255, 0.4);
+}
+
+.violet--bg {
+    background-color: rgb(148, 0, 211);
+    box-shadow: 1px 4px 10px rgba(148, 0, 211, 0.4);
+}
+
+.green--bg {
+    background-color: rgb(34, 139, 34);
+    box-shadow: 1px 4px 10px rgba(34, 139, 34, 0.4);
+}
+
+
+

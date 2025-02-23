@@ -1,0 +1,67 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* divide the navbar horizontally into 3 parts: left-section, main-menu and right-section*/
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 10px;
+    padding: 10px;
+    height: 50px;
+}
+
+/* first part is left-section */
+.left-section {
+    display: flex;
+    align-items: center;
+}
+
+.left-section > img {
+    height: 50px;
+    margin: 10px;
+}
+
+.left-section button {
+    background-color: #f0f0f0;
+    border-style: none;
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 1.1em;
+}
+
+.left-section button i {
+    margin-right: 10px;
+}
+
+/* second part is main-menu */
+.main-menu ul {
+    display: flex;
+    list-style-type: none;
+    gap: 25px; /*the space between li elements*/
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: bold;
+}
+
+/* last part is right-section */
+.right-section button {
+    padding: 10px 20px;
+    color: #ffffff;
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: #0000ff;
+    border-radius: 8px;
+    border-style: none;
+}
