@@ -1,51 +1,59 @@
 /* reset css */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.container{
+
+.container {
     margin: 20px auto;
     width: 90%;
     display: flex;
-    flex-wrap: wrap
+    flex-wrap: wrap;
 }
 
-.product-item{
-    display: flex;
-    flex-direction: column;
-    min-width: 250px;
+.product-item {
     border: 1px solid #aaaaaa;
     border-radius: 8px;
     padding: 10px;
     margin: 8px;
-    width: calc(20% - 32px);
+    box-shadow: 0 5px 8px 5px rgb(228, 230, 230);
+
+    display: flex;
+    flex-direction: column;
+    min-width: 225px;
+    width: calc(20% - 16px);
     font-family: "Arial", sans-serif;
 }
-.product-image{
+
+.product-image {
     margin: 10px auto;
 }
 
-.product-image img{
+.product-image img {
     width: 100%;
 }
 
-.product-name{
+.product-name {
     margin: 0 auto 20px;
 }
-.product-name h3{
+
+.product-name h3 {
     font-size: 14px;
     font-weight: 600;
+    line-height: 1.5em;
 }
-h3 a{
+
+h3 a {
     text-decoration: none;
     color: #333333;
 }
 
-.product-specs{
+.product-specs {
     margin-bottom: 10px;
 }
-.specs-detail{
+
+.specs-detail {
     display: inline-block;
     margin-right: 5px;
     padding: 1px 5px;
@@ -55,40 +63,47 @@ h3 a{
     color: #3a3a3a;
 }
 
-.product-prices{
+.product-prices {
     margin-bottom: 5px;
 }
-.product-prices .price{
+
+.product-prices .price {
     font-size: 16px;
     font-weight: 700;
     color: #ff0000;
     display: inline-block;
 }
-.product-prices .original-price{
+
+.product-prices .original-price {
     font-size: 14px;
     font-weight: 600;
     color: #707070;
     text-decoration: line-through;
     display: inline-block;
 }
-.smem-discount,.student-discount{
+
+.smem-discount, .student-discount {
     font-size: 11px;
     color: #444444;
     margin-bottom: 10px;
 }
-.discount{
+
+.discount {
     font-size: 14px;
     font-weight: 700;
     color: #d70018;
 }
-.promotion{
+
+.promotion {
     padding: 5px;
     border: 1px solid #aaaaaa;
     border-radius: 4px;
     background-color: #f3f4f6;
     margin-bottom: 10px;
+    line-height: 1.5em;
 }
-.promotion p{
+
+.promotion p {
     font-size: 12px;
     color: #444444;
     overflow: hidden;
@@ -96,26 +111,29 @@ h3 a{
     -webkit-box-orient: vertical;
     display: -webkit-box;
 }
-.remark{
+
+.remark {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.rating{
-    font-size: 10px;
+
+.rating {
+    font-size: 14px;
     color: #ff8c00;
 }
-.like{
+
+.like {
     font-size: 12px;
     color: #888888;
 }
-.like button{
+
+.like button {
     border: none;
     background-color: transparent;
-    color: #ff0000;
-    font-size: 10px;
 }
-.like button i{
+
+.like button i {
     color: #ff0000;
-    font-size: 14px;
+    font-size: 18px;
 }
