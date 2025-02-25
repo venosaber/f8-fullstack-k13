@@ -1,0 +1,121 @@
+/* reset css */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    margin: 20px auto;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap
+}
+
+.product-item{
+    display: flex;
+    flex-direction: column;
+    min-width: 250px;
+    border: 1px solid #aaaaaa;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 8px;
+    width: calc(20% - 32px);
+    font-family: "Arial", sans-serif;
+}
+.product-image{
+    margin: 10px auto;
+}
+
+.product-image img{
+    width: 100%;
+}
+
+.product-name{
+    margin: 0 auto 20px;
+}
+.product-name h3{
+    font-size: 14px;
+    font-weight: 600;
+}
+h3 a{
+    text-decoration: none;
+    color: #333333;
+}
+
+.product-specs{
+    margin-bottom: 10px;
+}
+.specs-detail{
+    display: inline-block;
+    margin-right: 5px;
+    padding: 1px 5px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 11px;
+    color: #3a3a3a;
+}
+
+.product-prices{
+    margin-bottom: 5px;
+}
+.product-prices .price{
+    font-size: 16px;
+    font-weight: 700;
+    color: #ff0000;
+    display: inline-block;
+}
+.product-prices .original-price{
+    font-size: 14px;
+    font-weight: 600;
+    color: #707070;
+    text-decoration: line-through;
+    display: inline-block;
+}
+.smem-discount,.student-discount{
+    font-size: 11px;
+    color: #444444;
+    margin-bottom: 10px;
+}
+.discount{
+    font-size: 14px;
+    font-weight: 700;
+    color: #d70018;
+}
+.promotion{
+    padding: 5px;
+    border: 1px solid #aaaaaa;
+    border-radius: 4px;
+    background-color: #f3f4f6;
+    margin-bottom: 10px;
+}
+.promotion p{
+    font-size: 12px;
+    color: #444444;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+.remark{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.rating{
+    font-size: 10px;
+    color: #ff8c00;
+}
+.like{
+    font-size: 12px;
+    color: #888888;
+}
+.like button{
+    border: none;
+    background-color: transparent;
+    color: #ff0000;
+    font-size: 10px;
+}
+.like button i{
+    color: #ff0000;
+    font-size: 14px;
+}

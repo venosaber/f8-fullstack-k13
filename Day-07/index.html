@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+
+
+                      .product-item
+                          ▲
+     ┌────────────────────┼──────────────────────────────────────────┐
+     │ ┌──────────────────┴───────┐                                  │
+     │ │┌────────────────────────┐│      .container                  │
+     │ ││                        ││                                  │
+     │ ││     .product-image     ││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│                                  │
+     │ ││    .product-name       ││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│     .product-specs               │
+     │ ││┌───┐┌────┐┌────┐       ┼┼────►                             │
+     │ │││   ││    ││    ┼───────┼┼───────────► .specs-detail        │
+     │ ││└───┘└────┘└────┘       ││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│                                  │
+     │ ││ ┌───────┐ ┌───────────┐┼┼──────► .product-prices           │
+     │ ││ │ .price│ │.origin-price│                                  │
+     │ ││ └───────┘ └───────────┘││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│                                  │
+     │ ││   .smem-discount       ││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│                                  │
+     │ ││   .student-discount    ││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ │┌────────────────────────┐│                                  │
+     │ ││      .promotion        ││                                  │
+     │ │└────────────────────────┘│  .like                           │
+     │ │┌────────────────────────┐│    ▲                             │
+     │ ││┌──────────┐ ┌─────────┬┼┼────┘                             │
+     │ │││ .rating  │ │    ┌───┐│├┼───► .remark                      │
+     │ │││          │ │    └───┘│││                                  │
+     │ ││└──────────┘ └─────────┘││                                  │
+     │ │└────────────────────────┘│                                  │
+     │ └──────────────────────────┘                                  │
+     └───────────────────────────────────────────────────────────────┘
+
+
+
+-->
+<div class="container">
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+           <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+    <div class="product-item">
+        <div class="product-image">
+            <img src="https://cellphones.com.vn/media/catalog/product/l/a/laptop-asus-vivobook-15x-oled-m3504ya-l1268w-thumbnails.png" alt="laptop asus">
+        </div>
+
+        <div class="product-name">
+            <h3><a href="#">Laptos ASUS Vivobook 15 X1504ZA-NJ517W</a></h3>
+        </div>
+
+        <div class="product-specs">
+            <div class="specs-detail">16GB</div>
+            <div class="specs-detail">512GB</div>
+            <div class="specs-detail">15.6 inches</div>
+        </div>
+        <div class="product-prices">
+            <div class="price">13.990.000đ</div>
+            <div class="original-price">16.490.000đ</div>
+        </div>
+        <div class="smem-discount">
+            Smember giảm thêm đến <span class="discount">140.000đ</span>
+        </div>
+        <div class="student-discount">
+            S-Student giảm thêm đến <span class="discount">400.000đ</span>
+        </div>
+        <div class="promotion">
+            <p>Tặng TAI NGHE NHÉT TAI JBL C200SIU ĐEN trị giá 290.000đ (Số lượng có hạn) và nhiều khuyến mại khác</p>
+        </div>
+        <div class="remark">
+            <div class="rating">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="like">
+                Yêu thích
+                <button><i class="fa-regular fa-heart"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
