@@ -57,6 +57,7 @@ body {
 
 /* last part is right-section */
 .right-section button {
+    cursor: pointer;
     padding: 10px 20px;
     color: #ffffff;
     font-size: 1.1em;

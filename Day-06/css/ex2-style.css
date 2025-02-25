@@ -16,7 +16,7 @@
     justify-content: center;
 }
 
-.services {
+.service {
     background-color: #ffffff;
     border-style: solid;
     border-color: transparent;
@@ -26,9 +26,9 @@
     max-width: 30%;
 }
 
-/* when the .services is hovered, the border changes to red */
-.services:hover {
-    border: 3px solid #ff0000;
+/* when the .service is hovered, the outline changes to red */
+.service:hover {
+    outline: 3px solid #ff0000;
 }
 
 /* align the div.icon and h3 */
@@ -59,12 +59,12 @@
 
 h3 {
     color: #000000;
-    margin: 10px;
+    margin: 20px;
 }
 
-.services p {
+.service p {
     line-height: 1.5em;
-    margin-bottom: 15px;
+    margin: 15px 0;
 }
 
 .learn-more {

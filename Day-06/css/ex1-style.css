@@ -6,7 +6,7 @@
 }
 
 .services {
-    font-family: Lato, sans-serif;
+    font-family: "Lato", sans-serif;
     color: #888888;
     padding: 20px 30px;
     border: 1px solid #000000;
@@ -15,7 +15,7 @@
 }
 
 h2 {
-    font-family: Lobster, sans-serif;
+    font-family: "Lobster", sans-serif;
     font-size: 36px;
     font-style: italic;
     margin-bottom: 30px;
@@ -40,7 +40,7 @@ form {
 }
 
 /* while the form-group is hovered or focused or active, the border changes to black */
-.form-group:hover, .form-group:focus, .form-group:active {
+.form-group:hover, .form-group:focus-within {
     border-color: #000000;
 }
 
@@ -53,7 +53,7 @@ form {
 }
 
 /* while the form-group is hovered or focused or active, the icon container changes to black */
-.form-group:hover .icon-container, .form-group:focus .icon-container, .form-group:active .icon-container {
+.form-group:hover .icon-container, .form-group:focus-within .icon-container {
     background-color: #000000;
 }
 
@@ -77,12 +77,31 @@ form {
     transform: translateY(-50%);
 }
 
+.icon-ending i:nth-child(2){
+    display: none;
+}
+
+/* while the form-group is hovered or focused or active, the icon-ending changes to black */
+.form-group:hover .icon-ending i, .form-group:focus-within .icon-ending i{
+    color: #000000;
+}
+
+/* while the form-group is focused or active, the icon-ending changes from * to x */
+.form-group:focus-within .icon-ending i:first-child{
+    display: none;
+}
+
+.form-group:focus-within .icon-ending i:last-child{
+    display: inline;
+}
+
 .textarea-icon i {
     top: 10%;
 }
 
 /* erase the border and outline */
 .form-group input, select, textarea {
+    font-family: "Lato", sans-serif;
     border-style: none;
     outline-style: none;
     display: inline-block;
@@ -94,6 +113,10 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+}
+
+select option{
+    background-color: transparent;
 }
 
 textarea {
@@ -116,11 +139,14 @@ textarea {
 }
 
 #submit-group button {
+    cursor: pointer;
     padding: 10px 30px;
     background-color: #ff4500;
     color: #ffffff;
     position: absolute;
     right: 0;
+    border-style: none;
+    font-family: "Lato", sans-serif;
 }
 
 /* By default, the note is not shown */
@@ -129,7 +155,7 @@ textarea {
 }
 
 /* The note will appear when the form-group is focused or active */
-.form-group:focus .note, .form-group:active .note {
+.form-group:focus-within .note {
     display: block;
     padding: 10px;
     margin: 10px 20px;
@@ -140,7 +166,7 @@ textarea {
 }
 
 /* Create a black triangle right below the note element */
-.form-group:focus .note::after, .form-group:active .note::after {
+.form-group:focus-within .note::after{
     display: block;
     position: absolute;
     top: 100%;
