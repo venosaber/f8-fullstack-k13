@@ -153,7 +153,10 @@ html {
         font-size: 22px;
         background-color: #4169e1;
         color: #ffffff;
+    }
 
+    .nav-desktop__level2 a:hover{
+        background-color: #9400d3;
     }
 
 }
