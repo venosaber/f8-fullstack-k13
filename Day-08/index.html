@@ -11,38 +11,38 @@
 <body>
 <!--
 
-   ┌──────────────────────────────────────────────────────────────────────────┐
-   │                               header                                     │
-   │  ┌─────────────────────────────────────────────────────────────────────┐ │
-   │  │  .menu-bar    ┌─────────────────────────────────────┐               │ │
-   │  │               │    ┌───────────────────────────────┐│               │ │
-   │  │┌────────┐     │    │   ┌─────────────────────┐     ││┌─────────────┐│ │
-   │  ││        │     │ nav│ul │ li  .nav-desktop lv1│     │││             ││ │
-   │  ││  .logo │     │    │   │ ┌──────────────────┐│     │││label  (icon)││ │
-   │  ││        │     │    │   │ │ul li             ││     │││             ││ │
-   │  ││        │     │    │   │ │ .nav-desktop lv2 ││     ││└─────────────┘│ │
-   │  ││        │     │    │   │ └──────────────────┘│     ││               │ │
-   │  │└────────┘     │    │   └─────────────────────┘     ││               │ │
-   │  │               │    └───────────────────────────────┘│               │ │
-   │  │               └─────────────────────────────────────┘               │ │
-   │  └─────────────────────────────────────────────────────────────────────┘ │
-   │   ┌─────────────────────────────────────┐                                │
-   │   │     .nav-mobile                     │                                │
-   │   │  ┌─────────────────────────────────┐│                                │
-   │   │  │ ul ┌──────────────────────┐     ││                                │
-   │   │  │    │ li   .nav-mobile lv1 │     ││                                │
-   │   │  │    │  ┌──────────────────┐│┌──┐ ││                                │
-   │   │  │    │  │  ul              │││  │ ││                                │
-   │   │  │    │  │ ┌──────────────┐ │││li│ ││                                │
-   │   │  │    │  │ │li .nav-mobile│ ││└──┘ ││                                │
-   │   │  │    │  │ │    lv2       │ ││     ││                                │
-   │   │  │    │  │ └──────────────┘ ││     ││                                │
-   │   │  │    │  └──────────────────┘│     ││                                │
-   │   │  │    └──────────────────────┘     ││                                │
-   │   │  └─────────────────────────────────┘│                                │
-   │   └─────────────────────────────────────┘                                │
-   └──────────────────────────────────────────────────────────────────────────┘
-                                                                                -->
+  ┌─────────────────────────────────────────────────────────────────────┐
+  │                               header                                │
+  │  ┌─────────────────────────────────────────────────────────────────┐│
+  │  │  .menu-bar    ┌─────────────────────────────────────┐           ││
+  │  │               │    ┌───────────────────────────────┐│           ││
+  │  │┌────────┐     │    │    ul  .nav-desktop lv1       ││┌─────────┐││
+  │  ││        │     │ nav│ ┌───────────────────────────┐ │││         │││
+  │  ││  .logo │     │    │ │   ┌────────────────────┐  │ │││label    │││
+  │  ││        │     │    │ │li │ ul .nav-desktop lv2│  │ │││   (icon)│││
+  │  ││        │     │    │ │   │               ┌──┐ │  │ ││└─────────┘││
+  │  ││        │     │    │ │   │               │li│ │  │ ││           ││
+  │  │└────────┘     │    │ │   │               └──┘ │  │ ││           ││
+  │  │               │    │ │   └────────────────────┘  │ ││           ││
+  │  │               │    │ └───────────────────────────┘ ││           ││
+  │  │               │    └───────────────────────────────┘│           ││
+  │  │               └─────────────────────────────────────┘           ││
+  │  └─────────────────────────────────────────────────────────────────┘│
+  │           ┌─────────────────────────────────────┐                   │
+  │           │       .nav-mobile                   │                   │
+  │           │  ┌─────────────────────────────────┐│                   │
+  │  ┌───────┐│  │ ul        .nav-mobile lv1       ││                   │
+  │  │input  ││  │    ┌──────────────────────┐     ││                   │
+  │  │(hidden)│  │    │li┌──────────────────┐│     ││                   │
+  │  │       ││  │    │  │ul .nav-mobile lv2││     ││                   │
+  │  └───────┘│  │    │  │  ┌──┐            ││     ││                   │
+  │           │  │    │  │  │li│            ││     ││                   │
+  │           │  │    │  └──┴──┴────────────┘│     ││                   │
+  │           │  │    └──────────────────────┘     ││                   │
+  │           │  └─────────────────────────────────┘│                   │
+  │           └─────────────────────────────────────┘                   │
+  └─────────────────────────────────────────────────────────────────────┘
+                                                                          -->
 <header>
     <div class="menu-bar">
         <div class="logo">
@@ -50,27 +50,27 @@
         </div>
 
         <nav>
-            <ul>
-                <li class="nav-desktop__level1"><a href="#">Home</a></li>
+            <ul class="nav-desktop__level1">
+                <li><a href="#">Home</a></li>
 
-                <li class="nav-desktop__level1">
+                <li>
                     <a href="#">Product</a>
-                    <ul>
-                        <li class="nav-desktop__level2"><a href="#">Iphone</a></li>
-                        <li class="nav-desktop__level2"><a href="#">Samsung</a></li>
-                        <li class="nav-desktop__level2"><a href="#">Xiaomi</a></li>
+                    <ul class="nav-desktop__level2">
+                        <li><a href="#">Iphone</a></li>
+                        <li><a href="#">Samsung</a></li>
+                        <li><a href="#">Xiaomi</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-desktop__level1">
+                <li>
                     <a href="#">Contact</a>
-                    <ul>
-                        <li class="nav-desktop__level2"><a href="#">Contact 1</a></li>
-                        <li class="nav-desktop__level2"><a href="#">Contact 2</a></li>
+                    <ul class="nav-desktop__level2">
+                        <li><a href="#">Contact 1</a></li>
+                        <li><a href="#">Contact 2</a></li>
                     </ul>
                 </li>
 
-                <li class="nav-desktop__level1"><a href="#">About</a></li>
+                <li><a href="#">About</a></li>
             </ul>
         </nav>
 
@@ -83,24 +83,24 @@
 
     <input type="checkbox" id="menu-mobile" hidden>
     <div class="nav-mobile">
-        <ul>
-            <li class="nav-mobile__level1"><a href="#">Home</a></li>
-            <li class="nav-mobile__level1">
+        <ul class="nav-mobile__level1">
+            <li><a href="#">Home</a></li>
+            <li>
                 <a href="#">Product</a>
-                <ul>
-                    <li class="nav-mobile__level2"><a href="#">Iphone</a></li>
-                    <li class="nav-mobile__level2"><a href="#">Samsung</a></li>
-                    <li class="nav-mobile__level2"><a href="#">Xiaomi</a></li>
+                <ul class="nav-mobile__level2">
+                    <li ><a href="#">Iphone</a></li>
+                    <li><a href="#">Samsung</a></li>
+                    <li><a href="#">Xiaomi</a></li>
                 </ul>
             </li>
-            <li class="nav-mobile__level1">
+            <li>
                 <a href="#">Contact</a>
-                <ul>
-                    <li class="nav-mobile__level2"><a href="#">Contact 1</a></li>
-                    <li class="nav-mobile__level2"><a href="#">Contact 2</a></li>
+                <ul class="nav-mobile__level2">
+                    <li ><a href="#">Contact 1</a></li>
+                    <li><a href="#">Contact 2</a></li>
                 </ul>
             </li>
-            <li class="nav-mobile__level1"><a href="#">About</a></li>
+            <li><a href="#">About</a></li>
         </ul>
 
     </div>

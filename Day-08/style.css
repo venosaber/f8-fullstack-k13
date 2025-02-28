@@ -29,6 +29,9 @@ html {
 
     .menu-icon i {
         font-size: 24px;
+        padding: 20px;
+        border: 2px solid #ffffe0;
+        border-radius: 50%;
     }
 
     /* By default, the menu for mobile interface is hidden */
@@ -45,41 +48,35 @@ html {
         display: block;
         width: 200px;
         position: absolute;
-        top: 100%;
-        bottom: -87.5vh;
-        background-color: #ffff00;
-    }
-
-    .nav-mobile ul {
-        list-style-type: none;
-    }
-
-    .nav-mobile__level1 {
-        background-color: #ffff00;
+        top: 0;
+        height: 100vh;
+        background-color: #ff4500;
     }
 
     .nav-mobile a {
         text-decoration: none;
-        color: #0000ff;
+        color: #ffffff;
         font-size: 1.5em;
 
         display: block;
         padding: 20px 40px;
     }
 
+    .nav-mobile__level1{
+        list-style-type: none;
+    }
+
     /* By default, lv2 menu is not shown */
     .nav-mobile__level2 {
         display: none;
+        list-style: none;
     }
 
     /* When the lv1 menu is focused or active, the lv2 menu will be shown */
-    .nav-mobile__level1 > a:focus-within + ul .nav-mobile__level2 {
+    .nav-mobile__level1>li>a:focus-within + .nav-mobile__level2 {
         display: block;
-        margin-left: 5px;
-        padding: 5px;
-
-        text-align: center;
-        background-color: #ffff00;
+        padding-left: 15px;
+        background-color: #ff4500;
     }
 
     .nav-mobile__level1 a:hover {
@@ -88,7 +85,7 @@ html {
     }
 
     .nav-mobile__level2 a:hover {
-        background-color: #ffc0cb;
+        background-color: #0000ff;
         border-radius: 5px;
     }
 
@@ -104,59 +101,63 @@ html {
         display: none;
     }
 
-    nav > ul {
+    .nav-desktop__level1 {
         display: flex;
         justify-content: space-between;
         gap: 15px;
+        position: relative;
     }
 
     .nav-desktop__level1, .nav-desktop__level2 {
-        list-style-type: none;
+        list-style: none;
     }
 
-    .nav-desktop__level1 > a {
+    .nav-desktop__level1 > li >a {
         display: block;
         padding: 20px 10px;
 
         text-decoration: none;
         font-size: 24px;
+        color: #000000;
+        font-weight: 600;
+    }
+
+    .nav-desktop__level1 >li:hover {
+        background-color: #add8e6;
+        border-radius: 10px;
     }
 
     /* By default, lv2 menu is hidden */
-    .nav-desktop__level1 ul {
+    .nav-desktop__level2 {
         display: none;
     }
 
-    .nav-desktop__level1:hover {
-        background-color: #add8e6;
-    }
-
-    header {
-        position: relative;
-    }
-
-    .nav-desktop__level1:hover ul, .nav-desktop__level1:focus-within ul {
+    .nav-desktop__level1>li:hover .nav-desktop__level2, .nav-desktop__level2:hover{
         display: block;
         position: absolute;
         top: 100%;
-
-        list-style-type: none;
+        /* create a space between the content of lv1 & lv2 menu
+         * without losing the :hover state
+         * because the padding belongs to the lv2 menu
+         * (lv2 menu is right below lv1 due to using top: 100%)
+         */
+        padding-top: 15px;
     }
 
     .nav-desktop__level2 a {
         display: block;
         padding: 10px;
-        border: 2px solid #ffffff;
-        border-radius: 5px;
+        border: 1px solid #ffffff;
+        border-radius: 6px;
 
         text-decoration: none;
         font-size: 22px;
-        background-color: #4169e1;
+        background-color: #9400d3;
         color: #ffffff;
     }
 
     .nav-desktop__level2 a:hover{
-        background-color: #9400d3;
+        background-color: #ff0000;
     }
 
 }
