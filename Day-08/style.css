@@ -1,0 +1,159 @@
+/* reset css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Times New Roman", serif;
+    font-size: 16px;
+}
+
+.menu-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background-color: #ffff00;
+    padding: 0 10px;
+    height: 12.5vh;
+}
+
+/* mobile interface */
+@media screen and (max-width: 600px) {
+    /* hide the items on the navbar*/
+    nav {
+        display: none;
+    }
+
+    .menu-icon i {
+        font-size: 24px;
+    }
+
+    /* By default, the menu for mobile interface is hidden */
+    .nav-mobile {
+        display: none;
+    }
+
+    body {
+        position: relative;
+    }
+
+    /* The menu will be shown when the icon is clicked */
+    #menu-mobile:checked ~ .nav-mobile {
+        display: block;
+        width: 200px;
+        position: absolute;
+        top: 100%;
+        bottom: -87.5vh;
+        background-color: #ffff00;
+    }
+
+    .nav-mobile ul {
+        list-style-type: none;
+    }
+
+    .nav-mobile__level1 {
+        background-color: #ffff00;
+    }
+
+    .nav-mobile a {
+        text-decoration: none;
+        color: #0000ff;
+        font-size: 1.5em;
+
+        display: block;
+        padding: 20px 40px;
+    }
+
+    /* By default, lv2 menu is not shown */
+    .nav-mobile__level2 {
+        display: none;
+    }
+
+    /* When the lv1 menu is focused or active, the lv2 menu will be shown */
+    .nav-mobile__level1 > a:focus-within + ul .nav-mobile__level2 {
+        display: block;
+        margin-left: 5px;
+        padding: 5px;
+
+        text-align: center;
+        background-color: #ffff00;
+    }
+
+    .nav-mobile__level1 a:hover {
+        background-color: #90ee90;
+        border-radius: 5px;
+    }
+
+    .nav-mobile__level2 a:hover {
+        background-color: #ffc0cb;
+        border-radius: 5px;
+    }
+
+}
+
+/* tablets & desktop interface */
+@media screen and (min-width: 600px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-mobile {
+        display: none;
+    }
+
+    nav > ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .nav-desktop__level1, .nav-desktop__level2 {
+        list-style-type: none;
+    }
+
+    .nav-desktop__level1 > a {
+        display: block;
+        padding: 20px 10px;
+
+        text-decoration: none;
+        font-size: 24px;
+    }
+
+    /* By default, lv2 menu is hidden */
+    .nav-desktop__level1 ul {
+        display: none;
+    }
+
+    .nav-desktop__level1:hover {
+        background-color: #add8e6;
+    }
+
+    header {
+        position: relative;
+    }
+
+    .nav-desktop__level1:hover ul, .nav-desktop__level1:focus-within ul {
+        display: block;
+        position: absolute;
+        top: 100%;
+
+        list-style-type: none;
+    }
+
+    .nav-desktop__level2 a {
+        display: block;
+        padding: 10px;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+
+        text-decoration: none;
+        font-size: 22px;
+        background-color: #4169e1;
+        color: #ffffff;
+
+    }
+
+}

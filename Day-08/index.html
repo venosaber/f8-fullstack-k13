@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--
+
+   ┌──────────────────────────────────────────────────────────────────────────┐
+   │                               header                                     │
+   │  ┌─────────────────────────────────────────────────────────────────────┐ │
+   │  │  .menu-bar    ┌─────────────────────────────────────┐               │ │
+   │  │               │    ┌───────────────────────────────┐│               │ │
+   │  │┌────────┐     │    │   ┌─────────────────────┐     ││┌─────────────┐│ │
+   │  ││        │     │ nav│ul │ li  .nav-desktop lv1│     │││             ││ │
+   │  ││  .logo │     │    │   │ ┌──────────────────┐│     │││label  (icon)││ │
+   │  ││        │     │    │   │ │ul li             ││     │││             ││ │
+   │  ││        │     │    │   │ │ .nav-desktop lv2 ││     ││└─────────────┘│ │
+   │  ││        │     │    │   │ └──────────────────┘│     ││               │ │
+   │  │└────────┘     │    │   └─────────────────────┘     ││               │ │
+   │  │               │    └───────────────────────────────┘│               │ │
+   │  │               └─────────────────────────────────────┘               │ │
+   │  └─────────────────────────────────────────────────────────────────────┘ │
+   │   ┌─────────────────────────────────────┐                                │
+   │   │     .nav-mobile                     │                                │
+   │   │  ┌─────────────────────────────────┐│                                │
+   │   │  │ ul ┌──────────────────────┐     ││                                │
+   │   │  │    │ li   .nav-mobile lv1 │     ││                                │
+   │   │  │    │  ┌──────────────────┐│┌──┐ ││                                │
+   │   │  │    │  │  ul              │││  │ ││                                │
+   │   │  │    │  │ ┌──────────────┐ │││li│ ││                                │
+   │   │  │    │  │ │li .nav-mobile│ ││└──┘ ││                                │
+   │   │  │    │  │ │    lv2       │ ││     ││                                │
+   │   │  │    │  │ └──────────────┘ ││     ││                                │
+   │   │  │    │  └──────────────────┘│     ││                                │
+   │   │  │    └──────────────────────┘     ││                                │
+   │   │  └─────────────────────────────────┘│                                │
+   │   └─────────────────────────────────────┘                                │
+   └──────────────────────────────────────────────────────────────────────────┘
+                                                                                -->
+<header>
+    <div class="menu-bar">
+        <div class="logo">
+            <a href="#"><img src="https://rainbowit.net/html/histudy/assets/images/logo/logo.png" alt="logo" width="175px"/></a>
+        </div>
+
+        <nav>
+            <ul>
+                <li class="nav-desktop__level1"><a href="#">Home</a></li>
+
+                <li class="nav-desktop__level1">
+                    <a href="#">Product</a>
+                    <ul>
+                        <li class="nav-desktop__level2"><a href="#">Iphone</a></li>
+                        <li class="nav-desktop__level2"><a href="#">Samsung</a></li>
+                        <li class="nav-desktop__level2"><a href="#">Xiaomi</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-desktop__level1">
+                    <a href="#">Contact</a>
+                    <ul>
+                        <li class="nav-desktop__level2"><a href="#">Contact 1</a></li>
+                        <li class="nav-desktop__level2"><a href="#">Contact 2</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-desktop__level1"><a href="#">About</a></li>
+            </ul>
+        </nav>
+
+        <div class="menu-icon">
+            <label for="menu-mobile">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+    </div>
+
+    <input type="checkbox" id="menu-mobile" hidden>
+    <div class="nav-mobile">
+        <ul>
+            <li class="nav-mobile__level1"><a href="#">Home</a></li>
+            <li class="nav-mobile__level1">
+                <a href="#">Product</a>
+                <ul>
+                    <li class="nav-mobile__level2"><a href="#">Iphone</a></li>
+                    <li class="nav-mobile__level2"><a href="#">Samsung</a></li>
+                    <li class="nav-mobile__level2"><a href="#">Xiaomi</a></li>
+                </ul>
+            </li>
+            <li class="nav-mobile__level1">
+                <a href="#">Contact</a>
+                <ul>
+                    <li class="nav-mobile__level2"><a href="#">Contact 1</a></li>
+                    <li class="nav-mobile__level2"><a href="#">Contact 2</a></li>
+                </ul>
+            </li>
+            <li class="nav-mobile__level1"><a href="#">About</a></li>
+        </ul>
+
+    </div>
+</header>
+</body>
+</html>
