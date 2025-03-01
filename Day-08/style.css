@@ -6,7 +6,7 @@
 }
 
 html {
-    font-family: "Times New Roman", serif;
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
 }
 
@@ -16,8 +16,7 @@ html {
     align-items: center;
 
     background-color: #ffff00;
-    padding: 0 10px;
-    height: 12.5vh;
+    padding: 10px;
 }
 
 /* mobile interface */
@@ -35,7 +34,7 @@ html {
     }
 
     /* By default, the menu for mobile interface is hidden */
-    .nav-mobile {
+    .menu-mobile {
         display: none;
     }
 
@@ -44,16 +43,17 @@ html {
     }
 
     /* The menu will be shown when the icon is clicked */
-    #menu-mobile:checked ~ .nav-mobile {
+    #show-menu-mobile:checked ~ .menu-mobile {
         display: block;
-        width: 200px;
-        position: absolute;
+        z-index: 2;
+        width: 40%;
+        position: fixed;
         top: 0;
         height: 100vh;
         background-color: #ff4500;
     }
 
-    .nav-mobile a {
+    .menu-mobile a {
         text-decoration: none;
         color: #ffffff;
         font-size: 1.5em;
@@ -62,31 +62,63 @@ html {
         padding: 20px 40px;
     }
 
-    .nav-mobile__level1{
+    .nav--mobile {
         list-style-type: none;
     }
 
     /* By default, lv2 menu is not shown */
-    .nav-mobile__level2 {
+    .sub-nav--mobile {
         display: none;
         list-style: none;
     }
 
     /* When the lv1 menu is focused or active, the lv2 menu will be shown */
-    .nav-mobile__level1>li>a:focus-within + .nav-mobile__level2 {
+    .nav--mobile > li > a:focus-within + .sub-nav--mobile {
         display: block;
         padding-left: 15px;
         background-color: #ff4500;
     }
 
-    .nav-mobile__level1 a:hover {
+    .nav--mobile a:hover {
         background-color: #90ee90;
         border-radius: 5px;
     }
 
-    .nav-mobile__level2 a:hover {
+    .sub-nav--mobile a:hover {
         background-color: #0000ff;
         border-radius: 5px;
+    }
+
+    .close-btn {
+        padding: 6px;
+        border-radius: 50%;
+        border: none;
+        background-color: darkblue;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+
+    .close-btn i {
+        font-size: 16px;
+        color: #ffffff;
+    }
+
+    .overlay {
+        display: none;
+    }
+
+    #show-menu-mobile:checked ~ .overlay {
+        display: block;
+        z-index: 1;
+
+        position: fixed;
+        background-color: rgb(0, 0, 0, 0.5);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        cursor: pointer;
     }
 
 }
@@ -97,22 +129,22 @@ html {
         display: none;
     }
 
-    .nav-mobile {
+    .menu-mobile {
         display: none;
     }
 
-    .nav-desktop__level1 {
+    .nav--pc {
         display: flex;
         justify-content: space-between;
         gap: 15px;
         position: relative;
     }
 
-    .nav-desktop__level1, .nav-desktop__level2 {
+    .nav--pc, .sub-nav--pc {
         list-style: none;
     }
 
-    .nav-desktop__level1 > li >a {
+    .nav--pc > li > a {
         display: block;
         padding: 20px 10px;
 
@@ -122,17 +154,17 @@ html {
         font-weight: 600;
     }
 
-    .nav-desktop__level1 >li:hover {
+    .nav--pc > li:hover {
         background-color: #add8e6;
         border-radius: 10px;
     }
 
     /* By default, lv2 menu is hidden */
-    .nav-desktop__level2 {
+    .sub-nav--pc {
         display: none;
     }
 
-    .nav-desktop__level1>li:hover .nav-desktop__level2, .nav-desktop__level2:hover{
+    .nav--pc > li:hover .sub-nav--pc, .sub-nav--pc:hover {
         display: block;
         position: absolute;
         top: 100%;
@@ -141,10 +173,10 @@ html {
          * because the padding belongs to the lv2 menu
          * (lv2 menu is right below lv1 due to using top: 100%)
          */
-        padding-top: 15px;
+        padding-top: 10px;
     }
 
-    .nav-desktop__level2 a {
+    .sub-nav--pc a {
         display: block;
         padding: 10px;
         border: 1px solid #ffffff;
@@ -156,7 +188,7 @@ html {
         color: #ffffff;
     }
 
-    .nav-desktop__level2 a:hover{
+    .sub-nav--pc a:hover {
         background-color: #ff0000;
     }
 

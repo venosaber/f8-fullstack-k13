@@ -6,6 +6,11 @@
           content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--    Use Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -46,16 +51,17 @@
 <header>
     <div class="menu-bar">
         <div class="logo">
-            <a href="#"><img src="https://rainbowit.net/html/histudy/assets/images/logo/logo.png" alt="logo" width="175px"/></a>
+            <a href="#"><img src="https://rainbowit.net/html/histudy/assets/images/logo/logo.png" alt="logo"
+                             width="175px"/></a>
         </div>
 
         <nav>
-            <ul class="nav-desktop__level1">
+            <ul class="nav--pc">
                 <li><a href="#">Home</a></li>
 
                 <li>
                     <a href="#">Product</a>
-                    <ul class="nav-desktop__level2">
+                    <ul class="sub-nav--pc">
                         <li><a href="#">Iphone</a></li>
                         <li><a href="#">Samsung</a></li>
                         <li><a href="#">Xiaomi</a></li>
@@ -64,7 +70,7 @@
 
                 <li>
                     <a href="#">Contact</a>
-                    <ul class="nav-desktop__level2">
+                    <ul class="sub-nav--pc">
                         <li><a href="#">Contact 1</a></li>
                         <li><a href="#">Contact 2</a></li>
                     </ul>
@@ -75,35 +81,49 @@
         </nav>
 
         <div class="menu-icon">
-            <label for="menu-mobile">
+            <label for="show-menu-mobile">
                 <i class="fa-solid fa-bars"></i>
             </label>
         </div>
     </div>
 
-    <input type="checkbox" id="menu-mobile" hidden>
-    <div class="nav-mobile">
-        <ul class="nav-mobile__level1">
+    <input type="checkbox" id="show-menu-mobile" hidden>
+    <div class="menu-mobile">
+        <ul class="nav--mobile">
             <li><a href="#">Home</a></li>
+
             <li>
                 <a href="#">Product</a>
-                <ul class="nav-mobile__level2">
-                    <li ><a href="#">Iphone</a></li>
+                <ul class="sub-nav--mobile">
+                    <li><a href="#">Iphone</a></li>
                     <li><a href="#">Samsung</a></li>
                     <li><a href="#">Xiaomi</a></li>
                 </ul>
             </li>
+
             <li>
                 <a href="#">Contact</a>
-                <ul class="nav-mobile__level2">
-                    <li ><a href="#">Contact 1</a></li>
+                <ul class="sub-nav--mobile">
+                    <li><a href="#">Contact 1</a></li>
                     <li><a href="#">Contact 2</a></li>
                 </ul>
             </li>
+
             <li><a href="#">About</a></li>
         </ul>
 
+        <!--Clicking the button will lead to .menu-mobile being closed-->
+        <button type="button" class="close-btn">
+            <label for="show-menu-mobile">
+                <i class="fa-solid fa-xmark"></i>
+            </label>
+        </button>
     </div>
+
+    <!--    Clicking on the overlay will lead to .menu-mobile being closed-->
+    <label for="show-menu-mobile" class="overlay">
+    </label>
 </header>
+
 </body>
 </html>
