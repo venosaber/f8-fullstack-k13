@@ -111,6 +111,22 @@ header {
     cursor: pointer;
 }
 
+.notation{
+    display: none;
+}
+
+.open-search-bar-btn:hover .notation,
+.voice-search-btn:hover .notation,
+.settings-group:hover .notation{
+    display: block;
+    position: absolute;
+    padding: 5px;
+    background-color: rgba(0,0,0,0.5);
+    color: #ffffff;
+    margin-top: 15px;
+    margin-left: -20px;
+}
+
 .open-search-bar-btn span, .voice-search-btn span {
     font-size: 20px;
     padding: 15px;
@@ -349,4 +365,11 @@ header {
         flex-grow: 1;
     }
 
+    .voice-search-btn button{
+        background-color: #f5f5f5;
+    }
+
+    .voice-search-btn button:hover {
+        background-color: #cccccc;
+    }
 }
