@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--    Use Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="youtube-style.css">
+    <title>YouTube</title>
+</head>
+<body>
+<!--
+
+                                            ┌─────────────────────────┐
+                                            │                   input │
+                                            │  #sidebar-extend        │
+                                            │                         │
+                                            └─────────────────────────┘
+
+ ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │                                .header           ┌───────────────────────────────────────────────────────────────────────┐┌────────────────────┐│
+ │┌────────┐ ┌─────┐ ┌────────────────────────────┐ │                        .search-group                                  ││                    ││
+ ││        │ │     │ │┌────────┐┌──────┐          │ │┌───────────────────────────────────────────────────────────┐ ┌───────┐││┌───────┐┌─────────┐││
+ ││ #show  │ │     │ ││        ││      │          │ ││ ┌─────┐ ┌─────────────────────┐┌───────────┐┌───────────┐ │ │       ││││       ││         │││
+ ││ -search│ │.back│ ││.sidebar││ .logo│.nav-group│ ││ │     │ │  input              ││.keyboard  ││.search-btn│ │ │.voice ││││.settin││.login   │││
+ ││ -bar   │ │-btn │ ││-extend ││      │          │ ││ │.icon│ │                     ││ -btn      ││           │ │ │-btn   ││││-btn   ││-btn     │││
+ ││        │ │     │ ││ -btn   ││      │          │ ││ └─────┘ └─────────────────────┘└───────────┘└───────────┘ │ │       ││││       ││         │││
+ ││   input│ │     │ │└────────┘└──────┘          │ ││                   .search-bar                             │ └───────┘││└───────┘└─────────┘││
+ │└────────┘ └─────┘ └────────────────────────────┘ │└───────────────────────────────────────────────────────────┘          ││.settings-group     ││
+ │                                                  └───────────────────────────────────────────────────────────────────────┘└────────────────────┘│
+ └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+          ┌────────────────────────┐     ┌────────────────────┐    ┌─────────────────────┐
+          │                        │     │                    │    │                     │
+          │   .sidebar--short      │     │   .sidebar--full   │    │      .overlay       │
+          └────────────────────────┘     └────────────────────┘    └─────────────────────┘
+
+-->
+<input type="checkbox" id="sidebar-extend" hidden>
+<header>
+    <input type="checkbox" id="show-search-bar" hidden>
+
+    <div class="back-btn">
+        <button>
+            <label for="show-search-bar">
+                <span class="fa-solid fa-arrow-left"></span>
+            </label>
+        </button>
+    </div>
+
+    <div class="nav-group">
+        <div class="sidebar-extend-btn">
+            <button>
+                <label for="sidebar-extend">
+                    <span class="fa-solid fa-bars"></span>
+                </label>
+            </button>
+        </div>
+
+        <div class="logo">
+            <a href="#"><img src="img/yticon.png" alt="youtube logo"></a>
+        </div>
+    </div>
+
+    <div class="search-group">
+        <div class="search-bar">
+            <span class="fa-solid fa-magnifying-glass"></span>
+            <input type="text" name="search-content" placeholder="Tìm kiếm">
+            <button><span class="fa-solid fa-keyboard"></span></button>
+
+            <button type="submit" title="Tìm kiếm">
+                <span class="fa-solid fa-magnifying-glass"></span>
+            </button>
+        </div>
+
+        <div class="open-search-bar-btn">
+            <button>
+                <label for="show-search-bar">
+                    <span class="fa-solid fa-magnifying-glass"></span>
+                </label>
+            </button>
+        </div>
+
+        <div class="voice-search-btn">
+            <button>
+                <span class="fa-solid fa-microphone"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="settings-group">
+        <div class="settings-btn">
+            <button>
+                <span class="fa-solid fa-ellipsis-vertical"></span>
+            </button>
+        </div>
+
+        <div class="login-btn">
+            <button>
+                <span class="fa-regular fa-circle-user"></span>
+                <span>Đăng nhập</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<nav class="sidebar--short">
+    <ul>
+        <li>
+            <a href="#">
+                <span class="fa-solid fa-house"></span>
+                <span>Trang chủ</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="fa-solid fa-clapperboard"></span>
+                <span>Shorts</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="fa-solid fa-tv"></span>
+                <span>Kênh đăng ký</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="fa-solid fa-user"></span>
+                <span>Bạn</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <span class="fa-solid fa-clock-rotate-left"></span>
+                <span>Video đã xem</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<nav class="sidebar--full">
+    <div class="nav-group">
+        <div class="sidebar-extend-btn">
+            <button>
+                <label for="sidebar-extend">
+                    <span class="fa-solid fa-bars"></span>
+                </label>
+            </button>
+        </div>
+
+        <div class="logo">
+            <a href="#"><img src="img/yticon.png" alt="youtube logo"></a>
+        </div>
+    </div>
+
+    <ul class="nav">
+        <li class="nav__item">
+            <ul class="sub-nav">
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Trang chủ</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-clapperboard"></span>
+                        <span>Shorts</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-tv"></span>
+                        <span>Kênh đăng ký</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav__item">
+            <ul class="sub-nav">
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-user"></span>
+                        <span>Bạn</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-clock-rotate-left"></span>
+                        <span>Video đã xem</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav__item">
+            <ul class="sub-nav">
+                <li>
+                    <div style="margin: 10px">Hãy đăng nhập để thích video, bình luận và đăng ký kênh.</div>
+                    <div class="login-btn">
+                        <button>
+                            <span class="fa-regular fa-circle-user"></span>
+                            <span>Đăng nhập</span>
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li class="nav__item">
+            <span>Khám phá</span>
+            <ul class="sub-nav">
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Thịnh hành</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Âm nhạc</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Trò chơi</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Tin tức</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Thể thao</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="nav__item">
+            <span>Dịch vụ khác của YouTube</span>
+            <ul class="sub-nav">
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>YouTube Premium</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>YouTube Music</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>YouTube Kids</span>
+                    </a>
+                </li>
+            </ul>
+
+        </li>
+
+        <li class="nav__item">
+            <ul class="sub-nav">
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Cài đặt</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Nhật ký báo cáo</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Trợ giúp</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#" class="sub-nav__link">
+                        <span class="fa-solid fa-house"></span>
+                        <span>Gửi ý kiến phản hồi</span>
+                    </a>
+                </li>
+
+            </ul>
+
+        </li>
+    </ul>
+</nav>
+
+<!--    Clicking on the overlay will lead to .sidebar--full being closed-->
+<label for="sidebar-extend" class="overlay">
+</label>
+</body>
+</html>

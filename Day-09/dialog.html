@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--    Use Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="dialog-style.css">
+</head>
+<body>
+<div class="sidebar">
+    <div class="sidebar__item">
+        <span class="mdi mdi-stack-overflow logo"></span>
+        <h1>F8 Admin</h1>
+    </div>
+
+    <div class="sidebar__header">
+        <h1>Menu</h1>
+    </div>
+
+    <div class="sidebar__item">
+        <span class="mdi mdi-account"></span>
+        <span>Quản lý đơn hàng</span>
+    </div>
+
+    <div class="sidebar__item">
+        <div>
+            <label for="toggle">
+                <div>
+                    <span class="mdi mdi-account"></span>
+                    <span>Quản lý Xe</span>
+                </div>
+                <div>
+                    <span class="mdi mdi-chevron-down"></span>
+                </div>
+            </label>
+
+
+        </div>
+        <div class="sidebar__item__child">
+
+            <input type="checkbox" id="toggle" hidden>
+            <div class="sidebar__item__child__item">
+                <span class="mdi mdi-account"></span>
+                <span>Quản lý xe máy</span>
+            </div>
+
+            <div class="sidebar__item__child__item">
+                <span class="mdi mdi-account"></span>
+                <span>Quản lý xe hơi</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar__item">
+        <span class="mdi mdi-account"></span>
+        <span>Quản lý Dịch Vụ</span>
+    </div>
+
+    <div class="sidebar__item">
+        <span class="mdi mdi-account"></span>
+        <span>Cài đặt khoảng</span>
+    </div>
+
+
+</div>
+<div class="body-container">
+    <h2>Members list</h2>
+    <div class="table">
+        <div class="table-header">
+            <div class="table-header__cell">Id</div>
+            <div class="table-header__cell">Name</div>
+            <div class="table-header__cell">Email</div>
+            <div class="table-header__cell">Action</div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-body__cell">1</div>
+            <div class="table-body__cell">Tran Van A</div>
+            <div class="table-body__cell">a@test.com</div>
+            <div class="table-body__cell">
+                <button class="edit-btn">
+                    <label for="open-dialog"><span class="mdi mdi-pencil"></span>edit
+                    </label></button>
+                <button class="del-btn"><span class="mdi mdi-trash-can-outline"></span>delete</button>
+            </div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-body__cell">1</div>
+            <div class="table-body__cell">Tran Van A</div>
+            <div class="table-body__cell">a@test.com</div>
+            <div class="table-body__cell">
+                <button class="edit-btn">
+                    <label for="open-dialog"><span class="mdi mdi-pencil"></span>edit
+                    </label></button>
+                <button class="del-btn"><span class="mdi mdi-trash-can-outline"></span>delete</button>
+            </div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-body__cell">1</div>
+            <div class="table-body__cell">Tran Van A</div>
+            <div class="table-body__cell">a@test.com</div>
+            <div class="table-body__cell">
+                <button class="edit-btn">
+                    <label for="open-dialog"><span class="mdi mdi-pencil"></span>edit
+                    </label></button>
+                <button class="del-btn"><span class="mdi mdi-trash-can-outline"></span>delete</button>
+            </div>
+        </div>
+
+        <div class="table-body">
+            <div class="table-body__cell">1</div>
+            <div class="table-body__cell">Tran Van A</div>
+            <div class="table-body__cell">a@test.com</div>
+            <div class="table-body__cell">
+                <button class="edit-btn">
+                    <label for="open-dialog"><span class="mdi mdi-pencil"></span>edit
+                    </label></button>
+                <button class="del-btn"><span class="mdi mdi-trash-can-outline"></span>delete</button>
+            </div>
+        </div>
+    </div>
+
+    <input type="checkbox" id="open-dialog" hidden>
+    <div class="overlay">
+    </div>
+
+    <div class="dialog">
+        <div class="dialog-title">Edit Information</div>
+
+        <div class="overlay"></div>
+
+        <div class="close-btn">
+            <label for="open-dialog">
+                <i class="fa-solid fa-x"></i>
+            </label>
+        </div>
+
+        <div class="form-input">
+            <form>
+                <input type="text" name="name" placeholder="name">
+                <input type="email" name="email" placeholder="email">
+                <div class="dialog-button">
+                    <button type="submit">Save</button>
+                    <button class="cancel-btn">
+                        <label for="open-dialog">Cancel</label>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,352 @@
+/* reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+}
+
+body {
+    position: relative;
+}
+
+header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+/* general css for .nav-group */
+.nav-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-group button {
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.nav-group button span {
+    font-size: 20px;
+    padding: 10px;
+}
+
+.sidebar-extend-btn button:hover {
+    background-color: #f0f0f0;
+}
+
+.back-btn {
+    display: none;
+}
+
+/* general CSS for search-group */
+
+.search-group {
+    display: flex;
+    align-items: center;
+}
+
+/* remove the background, border & outline of input & button */
+.search-bar input[type="text"],
+.search-bar button {
+    font-size: 18px;
+    padding: 5px;
+    border-style: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.search-bar {
+    border: 1px solid #cccccc;
+    border-radius: 20px;
+    margin-right: 5px;
+    position: relative;
+    display: flex;
+}
+
+.search-bar > span:first-child {
+    display: none;
+}
+
+.search-bar:focus-within > span:first-child {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 15px;
+}
+
+.search-bar:focus-within > input[type="text"] {
+    padding-left: 45px;
+}
+
+.search-bar button:last-of-type {
+    background-color: #fafafa;
+    border-left: 1px solid #cccccc;
+    padding: 5px 20px;
+    border-radius: 0 20px 20px 0;
+}
+
+.search-group button:last-of-type:hover {
+    background-color: #f0f0f0;
+}
+
+.open-search-bar-btn button, .voice-search-btn button {
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.open-search-bar-btn span, .voice-search-btn span {
+    font-size: 20px;
+    padding: 15px;
+}
+
+
+/* general CSS for .settings-group */
+.settings-group {
+    display: flex;
+    align-items: center;
+}
+
+.settings-group .settings-btn button {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-group .settings-btn span {
+    border: none;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.login-btn button {
+    background-color: transparent;
+    border: 1px solid #f0f0f0;
+    padding: 10px;
+    border-radius: 15px;
+    color: #0000ff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.login-btn button:hover {
+    background-color: #e2f3fd;
+}
+
+.login-btn button span:first-child {
+    font-size: 18px;
+}
+
+/* general CSS for .sidebar-short */
+.sidebar--short {
+    position: fixed;
+    left: 0;
+}
+
+.sidebar--short ul {
+    list-style: none;
+}
+
+.sidebar--short li a {
+    text-decoration: none;
+    display: block;
+    padding: 15px 1px;
+    border-radius: 10px;
+}
+
+.sidebar--short li a:hover {
+    background-color: #f0f0f0;
+}
+
+.sidebar--short li span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    padding-top: 5px;
+    color: #000000;
+}
+
+.sidebar--short li span:first-child {
+    font-size: 16px;
+}
+
+/* general CSS for .sidebar-full */
+.sidebar--full {
+    display: none;
+}
+
+#sidebar-extend:checked ~ .sidebar--short {
+    display: none;
+}
+
+#sidebar-extend:checked ~ .sidebar--full {
+    display: block;
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    z-index: 2;
+}
+
+.sidebar--full .nav-group {
+    padding: 10px;
+}
+
+.nav, .sub-nav {
+    list-style: none;
+}
+
+.nav {
+    max-height: calc(100vh - 50px);
+    overflow-y: scroll;
+}
+
+.nav__item {
+    border-bottom: 1px solid #cccccc;
+    padding: 10px;
+}
+
+.nav__item > span {
+    padding: 10px;
+    font-weight: 600;
+}
+
+.sub-nav__link {
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.sub-nav__link:hover {
+    background-color: #f0f0f0;
+}
+
+.sub-nav__link span:first-child {
+    display: inline-block;
+    width: 30px;
+}
+
+.overlay {
+    display: none;
+}
+
+/********** Responsive Design *********/
+/* mobile interface */
+@media screen and (max-width: 768px) {
+    .back-btn button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    .back-btn button span {
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    .back-btn button:hover {
+        background-color: #f0f0f0;
+    }
+
+    /** Make an overlay **/
+    #sidebar-extend:checked ~ .overlay {
+        display: block;
+        z-index: 1;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+    }
+
+    /* By default, the search-bar is hidden */
+    .search-bar {
+        display: none;
+    }
+
+    .search-group {
+        margin-left: auto;
+    }
+
+    #show-search-bar:checked ~ .nav-group,
+    #show-search-bar:checked ~ .settings-group,
+    #show-search-bar:checked ~ .search-group .open-search-bar-btn {
+        display: none;
+    }
+
+    #show-search-bar:checked ~ .back-btn {
+        display: block;
+    }
+
+    #show-search-bar:checked ~ .search-group {
+        width: 80%;
+    }
+
+    #show-search-bar:checked ~ .search-group .search-bar {
+        display: flex;
+        width: 100%;
+    }
+
+    .search-bar input[type="text"] {
+        flex-grow: 1;
+    }
+
+    #show-search-bar:checked ~ .search-group .search-bar:focus-within {
+        border: 1px solid #0000ff;
+    }
+
+    /***** sidebar *****/
+    .sidebar--short {
+        display: none;
+    }
+
+}
+
+/* tablets & desktop interface */
+@media screen and (min-width: 768px) {
+    header {
+        justify-content: space-between;
+    }
+
+    .open-search-bar-btn {
+        display: none;
+    }
+
+    .search-group {
+        width: 50%;
+    }
+
+    .search-bar {
+        flex-grow: 1;
+    }
+
+    .search-bar input[type="text"] {
+        flex-grow: 1;
+    }
+
+}
