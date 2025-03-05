@@ -1,0 +1,1657 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--    Use Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Fake YouTube</title>
+</head>
+<body>
+<!--
+
+                                            ┌─────────────────────────┐
+                                            │                   input │
+                                            │  #sidebar-extend        │
+                                            │                         │
+                                            └─────────────────────────┘
+
+ ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+ │                                .header           ┌───────────────────────────────────────────────────────────────────────┐┌────────────────────┐│
+ │┌────────┐ ┌─────┐ ┌────────────────────────────┐ │                        .search-group                                  ││                    ││
+ ││        │ │     │ │┌────────┐┌──────┐          │ │┌───────────────────────────────────────────────────────────┐ ┌───────┐││┌───────┐┌─────────┐││
+ ││ #show  │ │     │ ││        ││      │          │ ││ ┌─────┐ ┌─────────────────────┐┌───────────┐┌───────────┐ │ │       ││││       ││         │││
+ ││ -search│ │.back│ ││.sidebar││ .logo│.nav-group│ ││ │     │ │  input              ││.keyboard  ││.search-btn│ │ │.voice ││││.settin││.login   │││
+ ││ -bar   │ │-btn │ ││-extend ││      │          │ ││ │.icon│ │                     ││ -btn      ││           │ │ │-btn   ││││-btn   ││-btn     │││
+ ││        │ │     │ ││ -btn   ││      │          │ ││ └─────┘ └─────────────────────┘└───────────┘└───────────┘ │ │       ││││       ││         │││
+ ││   input│ │     │ │└────────┘└──────┘          │ ││                   .search-bar                             │ └───────┘││└───────┘└─────────┘││
+ │└────────┘ └─────┘ └────────────────────────────┘ │└───────────────────────────────────────────────────────────┘          ││.settings-group     ││
+ │                                                  └───────────────────────────────────────────────────────────────────────┘└────────────────────┘│
+ └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+          ┌────────────────────────┐     ┌────────────────────┐    ┌─────────────────────┐
+          │                        │     │                    │    │                     │
+          │   .sidebar--short      │     │   .sidebar--full   │    │      .overlay       │
+          └────────────────────────┘     └────────────────────┘    └─────────────────────┘
+
+-->
+<input type="checkbox" id="sidebar-extend" hidden>
+<header>
+    <input type="checkbox" id="show-search-bar" hidden>
+
+    <div class="back-btn">
+        <button>
+            <label for="show-search-bar">
+                <span class="fa-solid fa-arrow-left"></span>
+            </label>
+        </button>
+    </div>
+
+    <div class="nav-group">
+        <div class="sidebar-extend-btn">
+            <button>
+                <label for="sidebar-extend">
+                    <span class="fa-solid fa-bars"></span>
+                </label>
+            </button>
+        </div>
+
+        <div class="logo">
+            <a href="#"><img src="img/yticon.png" alt="youtube logo"></a>
+        </div>
+    </div>
+
+    <div class="search-group">
+        <div class="search-bar">
+            <div class="search-bar__search-box">
+                <span class="fa-solid fa-magnifying-glass"></span>
+                <input type="text" name="search-content" placeholder="Tìm kiếm">
+                <button><span class="fa-solid fa-keyboard"></span></button>
+            </div>
+
+            <button type="submit" title="Tìm kiếm">
+                <span class="fa-solid fa-magnifying-glass"></span>
+            </button>
+        </div>
+
+        <div class="open-search-bar-btn notation-below">
+            <button>
+                <label for="show-search-bar">
+                    <span class="fa-solid fa-magnifying-glass"></span>
+                </label>
+            </button>
+            <div class="notation">Tìm kiếm
+            </div>
+        </div>
+
+        <div class="voice-search-btn notation-below">
+            <button>
+                <span class="fa-solid fa-microphone"></span>
+            </button>
+            <div class="notation tooltip-right-edge">Tìm kiếm bằng giọng nói
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-group">
+        <div class="settings-btn notation-below">
+            <button>
+                <span class="fa-solid fa-ellipsis-vertical"></span>
+            </button>
+            <div class="notation">Cài đặt
+            </div>
+        </div>
+
+        <div class="login-btn">
+            <button>
+                <span class="fa-regular fa-circle-user"></span>
+                <span>Đăng nhập</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div class="body-container">
+    <nav class="sidebar-short">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="fa-solid fa-house"></span>
+                    <span>Trang chủ</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="fa-solid fa-clapperboard"></span>
+                    <span>Shorts</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="fa-solid fa-tv"></span>
+                    <span>Kênh đăng ký</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="fa-solid fa-user"></span>
+                    <span>Bạn</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#">
+                    <span class="fa-solid fa-clock-rotate-left"></span>
+                    <span>Video đã xem</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <nav class="sidebar-full">
+        <div class="nav-group">
+            <div class="sidebar-extend-btn">
+                <button>
+                    <label for="sidebar-extend">
+                        <span class="fa-solid fa-bars"></span>
+                    </label>
+                </button>
+            </div>
+
+            <div class="logo">
+                <a href="#"><img src="img/yticon.png" alt="youtube logo"></a>
+            </div>
+        </div>
+
+        <ul class="nav">
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-clapperboard"></span>
+                            <span>Shorts</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-tv"></span>
+                            <span>Kênh đăng ký</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-user"></span>
+                            <span>Bạn</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-clock-rotate-left"></span>
+                            <span>Video đã xem</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <div style="margin: 10px">Hãy đăng nhập để thích video, bình luận và đăng ký kênh.</div>
+                        <div class="login-btn">
+                            <button>
+                                <span class="fa-regular fa-circle-user"></span>
+                                <span>Đăng nhập</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <div>Khám phá</div>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Thịnh hành</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Âm nhạc</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Trò chơi</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Tin tức</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Thể thao</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="nav__item">
+                <div>Dịch vụ khác của YouTube</div>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>YouTube Premium</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>YouTube Music</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>YouTube Kids</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Cài đặt</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Nhật ký báo cáo</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Trợ giúp</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Gửi ý kiến phản hồi</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+        </ul>
+    </nav>
+
+    <!--    Clicking on the overlay will lead to .sidebar--full being closed-->
+    <label for="sidebar-extend" class="overlay">
+    </label>
+
+    <main>
+        <div class="nav-topic">
+            <input type = "radio" id="option-1" name="page-filter" hidden checked>
+            <button><label for="option-1">Tất cả</label></button>
+
+            <input type = "radio" id="option-2" name="page-filter" hidden>
+            <button><label for="option-2">Âm nhạc</label></button>
+
+            <input type = "radio" id="option-3" name="page-filter" hidden>
+            <button><label for="option-3">Tin tức</label></button>
+
+            <input type = "radio" id="option-4" name="page-filter" hidden>
+            <button><label for="option-4">Trò chơi</label></button>
+
+            <input type = "radio" id="option-5" name="page-filter" hidden>
+            <button><label for="option-5">Danh sách kết hợp</label></button>
+        </div>
+
+        <div class="top-suggestions">
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+
+        <div class="videos-group-title">Tin nổi bật</div>
+        <div class="highlights">
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+
+        </div>
+
+        <div class="videos-group-title">Shorts</div>
+        <div class="shorts">
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="shortsframe/short-1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Kamen Rider Vail</div>
+
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">43N lượt xem * </span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+                        <div class="video__footer__button__actions">
+                            <div class="waitlist">Thêm vào danh sách chờ</div>
+                            <div class="share">Chia sẻ</div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="shortsframe/short-1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Kamen Rider Vail</div>
+
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">43N lượt xem * </span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+                        <div class="video__footer__button__actions">
+                            <div class="waitlist">Thêm vào danh sách chờ</div>
+                            <div class="share">Chia sẻ</div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="shortsframe/short-1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Kamen Rider Vail</div>
+
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">43N lượt xem * </span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+                        <div class="video__footer__button__actions">
+                            <div class="waitlist">Thêm vào danh sách chờ</div>
+                            <div class="share">Chia sẻ</div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="shortsframe/short-1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Kamen Rider Vail</div>
+
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">43N lượt xem * </span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+                        <div class="video__footer__button__actions">
+                            <div class="waitlist">Thêm vào danh sách chờ</div>
+                            <div class="share">Chia sẻ</div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="shortsframe/short-1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Kamen Rider Vail</div>
+
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">43N lượt xem * </span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+                        <div class="video__footer__button__actions">
+                            <div class="waitlist">Thêm vào danh sách chờ</div>
+                            <div class="share">Chia sẻ</div>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+
+        <div class="popular">
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+            <a href="#" class="video">
+                <div class="video__frame">
+                    <img src="videoframe/videoframe_1.png" alt="video frame">
+                </div>
+
+                <div class="video__footer">
+                    <div class="video__footer__avatar">
+                        <img src="avatar/1.jpg" alt="avatar">
+                    </div>
+
+                    <div class="video__footer__info">
+                        <div class="video__footer__info__title">Vụ khiêng quan tài trước chợ Bến Thành: Bắt khẩn cấp 9 người</div>
+                        <div class="video__footer__info__authorname">Báo Thanh Niên</div>
+                        <div class="video__footer__info__view-time">
+                            <span class="view-counts">172N lượt xem * </span>
+                            <span class="created-time">1 ngày trước</span>
+                        </div>
+                    </div>
+
+                    <div class="video__footer__button">
+                        <button class="video__footer__button__icon">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </button>
+
+                        <div class="video__footer__button__actions">
+                            <ul>
+                                <li class="waitlist">
+                                    <div class="fa-solid fa-photo-film"></div>
+                                    <div>Thêm vào danh sách chờ</div>
+                                </li>
+
+                                <li class="share">
+                                    <div class="fa-solid fa-share"></div>
+                                    <div>Chia sẻ</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    </main>
+</div>
+</body>
+</html>
