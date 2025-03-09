@@ -257,7 +257,7 @@ header {
     overflow-y: hidden;
 }
 
-.nav:hover {
+.nav:hover{
     overflow-y: scroll;
 }
 
@@ -271,7 +271,7 @@ header {
     font-weight: 600;
 }
 
-.nav__link {
+.nav__link{
     text-decoration: none;
     font-weight: 400;
     color: #444444;
@@ -301,7 +301,7 @@ header {
     font-weight: 400;
 }
 
-.bg--lightgray {
+.bg--lightgray{
     background-color: #f0f0f0;
 }
 
@@ -348,13 +348,12 @@ header {
     }
 
     #show-search-bar:checked ~ .search-group {
-        width: 80vw;
-        margin: auto;
+        width: 60vw;
+        margin-left: 20px;
     }
 
     #show-search-bar:checked ~ .search-group .search-bar {
         display: flex;
-        width: 100%;
     }
 
     .search-bar input[type="text"] {
