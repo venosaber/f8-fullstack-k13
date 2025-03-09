@@ -349,16 +349,16 @@ header {
 
     #show-search-bar:checked ~ .search-group {
         width: 60vw;
-        margin-left: 20px;
+        margin-left: 0;
     }
 
     #show-search-bar:checked ~ .search-group .search-bar {
         display: flex;
     }
 
-    .search-bar input[type="text"] {
-        flex-grow: 1;
-    }
+    /*.search-bar input[type="text"] {*/
+    /*    flex-grow: 1;*/
+    /*}*/
 
     #show-search-bar:checked ~ .search-group .voice-search-btn:hover .tooltip-right-edge {
         left: auto;
