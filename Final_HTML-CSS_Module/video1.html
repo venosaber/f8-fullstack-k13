@@ -1,0 +1,1518 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!--    Use Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/header-sidebar.css">
+    <link rel="stylesheet" href="css/watch.css">
+    <title>Watch videos</title>
+</head>
+<body>
+<!--
+
+  ┌──────────────────────────────────────────────────────────────────────┐
+  │                                                                      │
+  │                                                                      │
+  │                    .header                                           │
+  │                                                                      │
+  └──────────────────────────────────────────────────────────────────────┘
+  ┌────────┐┌────────────────────────────────────────────────────────────────────────┐
+  │        ││    ┌───────────────────────────────────────────────────────┐           │
+  │        ││    │   .video                                              │  .main    │
+  │        ││    │  ┌────────────────────────────────────────────────┐   │           │
+  │        ││    │  │        .video__frame                           │   │           │
+  │        ││    │  └────────────────────────────────────────────────┘   │           │
+  │        ││    │  ┌────────────────────────────────────────────────┐   │           │
+  │        ││    │  │        .video__title                           │   │           │
+  │        ││    │  └────────────────────────────────────────────────┘   │           │
+  │.sidebar││    │ ┌───────────────────────────────────────────────────┐ │           │
+  │ -full  ││    │ │┌────────────────────────────────────────────────┐ │ │           │
+  │        ││    │ ││               .video__information              │ │ │           │
+  │        ││    │ ││ ┌───────┐  ┌────────────────────┐              │ │ │           │
+  │        ││    │ ││ │       │  │┌──────────────────┐│ ┌──────────┐ │ │ │           │
+  │        ││    │ ││ │.avatar│  ││  .channel-name   ││ │.subscribe│ │ │ │           │
+  │        ││    │ ││ │       │  │└──────────────────┘│ │-btn      │ │ │ │           │
+  │        ││    │ ││ │       │  │┌──────────────────┐│ │          │ │ │ │           │
+  │        ││    │ ││ └───────┘  ││ .subscribe-count ││ └──────────┘ │ │ │           │
+  │        ││    │ ││            │└──────────────────┘│              │ │ │           │
+  │        ││    │ ││            └────────────────────┘              │ │ │           │
+  │        ││    │ │└────────────────────────────────────────────────┘ │ │           │
+  │        ││    │ │┌────────────────────────────────────────────────┐ │ │           │
+  │        ││    │ ││            .video__actions                     │ │ │           │
+  │        ││    │ ││  ┌────────────┐ ┌─────┐ ┌──────┐  ┌───────┐    │ │ │           │
+  │        ││    │ ││  │            │ │     │ │      │  │       │    │ │ │           │
+  │        ││    │ ││  │ .like-count│ │     │ │      │  │       │    │ │ │           │
+  │        ││    │ ││  └────────────┘ └─────┘ └──────┘  └───────┘    │ │ │           │
+  │        ││    │ │└────────────────────────────────────────────────┘ │ │           │
+  │        ││    │ │                                                   │ │           │
+  └────────┘│    │ └───────────────────────────────────────────────────┘ │           │
+            │    │ ┌───────────────────────────────────────────────────┐ │           │
+            │    │ │                                                   │ │           │
+            │    │ │                                                   │ │           │
+            │    │ │         .video__description                       │ │           │
+            │    │ │                                                   │ │           │
+            │    │ └───────────────────────────────────────────────────┘ │           │
+            │    └───────────────────────────────────────────────────────┘           │
+            │    ┌────────────────────────────────────────────────────────────┐      │
+            │    │            .suggestions                                    │      │
+            │    │ ┌────────────────────────────────────────────────────────┐ │      │
+            │    │ │ ┌────────┐┌───────────────────────────────┐┌──────────┐│ │      │
+            │    │ │ │        ││┌────────────────────────────┐ ││          ││ │      │
+            │    │ │ │__frame │││       __title              │ ││__actions ││ │      │
+            │    │ │ │        ││└────────────────────────────┘ ││-btn      ││ │      │
+            │    │ │ │        ││┌────────────────────────────┐ ││          ││ │      │
+            │    │ │ └────────┘││       __channel-name       │ ││          ││ │      │
+            │    │ │           │└────────────────────────────┘ │└──────────┘│ │      │
+            │    │ │           │┌────────────────────────────┐ │            │ │      │
+            │    │ │           ││                            │ │            │ │      │
+            │    │ │           ││     __views-time           │ │            │ │      │
+            │    │ │           │└────────────────────────────┘ │            │ │      │
+            │    │ │           │      __information            │            │ │      │
+            │    │ │           └───────────────────────────────┘            │ │      │
+            │    │ │             .suggest-video                             │ │      │
+            │    │ └────────────────────────────────────────────────────────┘ │      │
+            │    └────────────────────────────────────────────────────────────┘      │
+            └────────────────────────────────────────────────────────────────────────┘
+
+
+-->
+
+<input type="checkbox" id="sidebar-extend" hidden>
+<header>
+    <input type="checkbox" id="show-search-bar" hidden>
+
+    <div class="back-btn notation-below">
+        <button>
+            <label for="show-search-bar">
+                <span class="fa-solid fa-arrow-left"></span>
+            </label>
+        </button>
+        <div class="notation">Quay lại
+        </div>
+    </div>
+
+    <div class="nav-group">
+        <div class="sidebar-extend-btn">
+            <button>
+                <label for="sidebar-extend">
+                    <span class="fa-solid fa-bars"></span>
+                </label>
+            </button>
+        </div>
+
+        <div class="logo">
+            <a href="#"><img src="img/yticon.png" alt="youtube logo"></a>
+        </div>
+    </div>
+
+    <div class="search-group">
+        <div class="search-bar">
+            <div class="search-bar__search-box">
+                <span class="fa-solid fa-magnifying-glass"></span>
+                <input type="text" name="search-content" placeholder="Tìm kiếm">
+                <button><span class="fa-solid fa-keyboard"></span></button>
+            </div>
+
+            <button type="submit" title="Tìm kiếm">
+                <span class="fa-solid fa-magnifying-glass"></span>
+            </button>
+        </div>
+
+        <div class="open-search-bar-btn notation-below">
+            <button>
+                <label for="show-search-bar">
+                    <span class="fa-solid fa-magnifying-glass"></span>
+                </label>
+            </button>
+            <div class="notation">Tìm kiếm
+            </div>
+        </div>
+
+        <div class="voice-search-btn notation-below">
+            <button>
+                <span class="fa-solid fa-microphone"></span>
+            </button>
+            <div class="notation tooltip-right-edge">Tìm kiếm bằng giọng nói
+            </div>
+        </div>
+    </div>
+
+    <div class="settings-group">
+        <div class="settings-btn notation-below">
+            <button>
+                <span class="fa-solid fa-ellipsis-vertical"></span>
+            </button>
+            <div class="notation">Cài đặt
+            </div>
+        </div>
+
+        <div class="login-btn">
+            <button>
+                <span class="fa-regular fa-circle-user"></span>
+                <span>Đăng nhập</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<div class="body-container">
+    <nav class="sidebar-full">
+        <div class="nav-group">
+            <div class="sidebar-extend-btn">
+                <button>
+                    <label for="sidebar-extend">
+                        <span class="fa-solid fa-bars"></span>
+                    </label>
+                </button>
+            </div>
+
+            <div class="logo">
+                <a href="index.html"><img src="img/yticon.png" alt="youtube logo"></a>
+            </div>
+        </div>
+
+        <ul class="nav">
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-house"></span>
+                            <span>Trang chủ</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-clapperboard"></span>
+                            <span>Shorts</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-tv"></span>
+                            <span>Kênh đăng ký</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-user"></span>
+                            <span>Bạn</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-clock-rotate-left"></span>
+                            <span>Video đã xem</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <div style="margin: 10px">Hãy đăng nhập để thích video, bình luận và đăng ký kênh.</div>
+                        <div class="login-btn">
+                            <button>
+                                <span class="fa-regular fa-circle-user"></span>
+                                <span>Đăng nhập</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav__item">
+                <div>Khám phá</div>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-fire"></span>
+                            <span>Thịnh hành</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-music"></span>
+                            <span>Âm nhạc</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-gamepad"></span>
+                            <span>Trò chơi</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-regular fa-newspaper"></span>
+                            <span>Tin tức</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-trophy"></span>
+                            <span>Thể thao</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="nav__item">
+                <div>Dịch vụ khác của YouTube</div>
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-brands fa-youtube"></span>
+                            <span>YouTube Premium</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-play"></span>
+                            <span>YouTube Music</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-brands fa-square-youtube"></span>
+                            <span>YouTube Kids</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </li>
+
+            <li class="nav__item">
+                <ul class="sub-nav">
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-gear"></span>
+                            <span>Cài đặt</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-regular fa-flag"></span>
+                            <span>Nhật ký báo cáo</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-circle-question"></span>
+                            <span>Trợ giúp</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#" class="sub-nav__link">
+                            <span class="fa-solid fa-circle-exclamation"></span>
+                            <span>Gửi ý kiến phản hồi</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </li>
+
+            <li class="nav__item">
+                <div>
+                    <a href="#" class="nav__link">Giới thiệu</a>
+                    <a href="#" class="nav__link">Báo chí</a>
+                    <a href="#" class="nav__link">Bản quyền</a>
+                </div>
+
+                <div>
+                    <a href="#" class="nav__link">Liên hệ với chúng tôi</a>
+                </div>
+
+                <div>
+                    <a href="#" class="nav__link">Người sáng tạo</a>
+                    <a href="#" class="nav__link">Quảng cáo</a>
+                </div>
+
+                <div>
+                    <a href="#" class="nav__link">Nhà phát triển</a>
+                </div>
+
+            </li>
+        </ul>
+    </nav>
+
+    <!--    Clicking on the overlay will lead to .sidebar--full being closed-->
+    <label for="sidebar-extend" class="overlay">
+    </label>
+
+    <main>
+        <div class="video">
+            <div class="video__frame">
+                <img src="videoframe/videoframe.png" alt="video frame">
+            </div>
+
+            <div class="video__title">
+                <h1>Giá Như Đời Làm Gì Có Giá Như Remix - Đừng Hỏi Em Ổn Không Remix - Em Đã Rất Mạnh Mẽ Remix
+                    TikTok</h1>
+            </div>
+
+            <div>
+                <div class="video__information">
+                    <a href="#">
+                        <div class="avatar"></div>
+                    </a>
+                    <div>
+                        <a href="#">
+                            <div class="channel-name">Luxury Music</div>
+                        </a>
+                        <div class="subscribe-count">103 N người đăng ký</div>
+                    </div>
+                    <div class="subscribe-btn">
+                        <button>
+                            <div>Đăng ký</div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="video__actions">
+                    <div class="video__actions__vote">
+                        <button title="Tôi thích video này">
+                            <span class="fa-regular fa-thumbs-up"></span>
+                            <span class="like-count">15 N</span>
+                        </button>
+
+                        <button title="Tôi không thích video này">
+                            <span class="fa-regular fa-thumbs-down"></span>
+                        </button>
+                    </div>
+
+                    <div class="video__actions__share">
+                        <button title="Chia sẻ">
+                            <span class="fa-solid fa-share"></span>
+                            <span>Chia sẻ</span>
+                        </button>
+                    </div>
+
+                    <div class="video__actions__download">
+                        <button>
+                            <span class="fa-solid fa-download"></span>
+                            <span>Tải xuống</span>
+                        </button>
+                    </div>
+
+                    <div class="video__actions__more">
+                        <input type="checkbox" id="more-actions" hidden>
+                        <button>
+                            <label for="more-actions">
+                                <span class="fa-solid fa-ellipsis"></span>
+                            </label>
+                        </button>
+
+                        <div class="video__actions__more__functions">
+                            <ul>
+                                <li class="save">
+                                    <div class="fa-solid fa-bookmark"></div>
+                                    <div>Lưu</div>
+                                </li>
+
+                                <li class="report">
+                                    <div class="fa-regular fa-flag"></div>
+                                    <div>Báo vi phạm</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <input type="checkbox" id="show-more-description" hidden>
+            <div class="video__description">
+
+                <div>
+                    <span class="video__description__view-counts">446.617 lượt xem</span>
+                    <span class="video__description__created-time">27 thg 10, 2024</span>
+                </div>
+
+                <div class="video__description__creator-content">
+                    <div>
+                        Giá Như Đời Làm Gì Có Giá Như Remix - Đừng Hỏi Em Ổn Không Remix - Em Đã Rất Mạnh Mẽ Remix
+                        TikTok
+                    </div>
+                    <div>
+                        ✉ Hợp tác, quảng cáo, khiếu nại các vấn đề về bản quyền liên hệ chúng tôi qua mail:
+                        music@rin.media
+                    </div>
+                    <div>
+                        © Bản quyền video thuộc về Luxury Music
+                    </div>
+                    <div>
+                        © Copyright by Luxury Music - RIN Media - Mee Media ☞ Do not Reup
+                    </div>
+                </div>
+
+                <div class="video__description__transcript">
+                    <div>Bản chép lời</div>
+                    <div>Theo dõi nội dung video bằng bản chép lời.</div>
+                    <button>
+                        <span>Hiện bản chép lời</span>
+                    </button>
+                </div>
+
+                <div class="video__information">
+                    <a href="#">
+                        <div class="avatar"></div>
+                    </a>
+                    <div>
+                        <a href="#">
+                            <div class="channel-name">Luxury Music</div>
+                        </a>
+                        <div class="subscribe-count">103 N người đăng ký</div>
+                    </div>
+                </div>
+
+                <div class="video__description__footer">
+                    <a href="#">
+                        <button>
+                            <span class="fa-brands fa-youtube"></span>
+                            <span>Video</span>
+                        </button>
+                    </a>
+
+                    <a href="#">
+                        <button>
+                            <span class="fa-solid fa-user"></span>
+                            <span>Giới thiệu</span>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            <label for="show-more-description" class="toggle-btn"></label>
+
+        </div>
+
+        <div class="suggestions">
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+                    <input type="checkbox" id="videos-1-actions" hidden>
+
+                    <button>
+                        <label for="videos-1-actions">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+                    <input type="checkbox" id="videos-2-actions" hidden>
+
+                    <button>
+                        <label for="videos-2-actions">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-3.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Mixtape Nhạc Bay Phòng Được Yêu Thích Nhất 2025
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Nhạc Sàn Bay
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">266 N lượt xem</span>
+                        <span class="created-time">* 1 tháng trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+                    <input type="checkbox" id="videos-3-actions" hidden>
+
+                    <button>
+                        <label for="videos-3-actions">
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-1.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        Initial D Eurobeat Mix
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Marlon Hobfeld
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">395 N lượt xem</span>
+                        <span class="created-time">* 1 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+            <a href="#" class="suggest-video">
+                <div class="suggest-video__frame">
+                    <img src="videoframe/smallframe-2.avif" alt="video frame">
+                </div>
+
+                <div class="suggest-video__information">
+                    <div class="suggest-video__information__title">
+                        EUROBEAT MIX for winning at videogames
+                    </div>
+
+                    <div class="suggest-video__information__channel-name">
+                        Hosty
+                    </div>
+
+                    <div class="suggest-video__information__views-time">
+                        <span class="view-counts">1,9 Tr lượt xem</span>
+                        <span class="created-time">* 7 năm trước</span>
+                    </div>
+                </div>
+
+                <div class="suggest-video__actions-btn">
+
+                    <button>
+                        <label>
+                            <span class="fa-solid fa-ellipsis-vertical"></span>
+                        </label>
+                    </button>
+
+                    <div class="actions">
+                        <ul>
+                            <li class="waitlist">
+                                <div class="fa-solid fa-photo-film"></div>
+                                <div>Thêm vào danh sách chờ</div>
+                            </li>
+
+                            <li class="share">
+                                <div class="fa-solid fa-share"></div>
+                                <div>Chia sẻ</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
