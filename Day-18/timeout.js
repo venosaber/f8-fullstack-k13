@@ -34,6 +34,10 @@ const cart = [
  */
 
 function removeItemAfterDelay(productId, delay){
+    if(typeof productId !== 'number' || typeof delay !== 'number'){
+        console.log('invalid');
+        return;
+    }
     const index = getIndex(productId);
     if(index!==-1){
         setTimeout(()=>{
