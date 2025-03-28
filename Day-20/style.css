@@ -1,0 +1,72 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+}
+
+#container{
+    margin: 30px auto;
+}
+
+#expressionLine,
+#resultLine {
+    width: 320px;
+    height: 30px;
+    font-size: 20px;
+    background: #fff;
+    padding: 5px;
+}
+
+#expressionLine {
+    color: #555;
+    text-align: left;
+}
+
+#resultLine {
+    color: #000;
+    text-align: right;
+}
+
+table{
+    margin: 20px auto;
+}
+
+td {
+    padding: 5px;
+}
+
+button {
+    width: 70px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #e0e0e0;
+}
+
+button:hover {
+    background: #d4d4d4;
+}
+
+.num-btn {
+    background: #fff;
+    color: #000;
+}
+
+.op-btn {
+    background: #ff9500;
+    color: #fff;
+}
+
+#del-btn,
+#ac-btn {
+    background: #c0392b;
+    color: #fff;
+}
+
+#calc-btn {
+    background: #27ae60;
+    color: #fff;
+}
