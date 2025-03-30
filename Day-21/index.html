@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="side-bar">
+        <header class="side-bar__header">
+            <span class="mdi mdi-stack-overflow logo"></span>
+            <h1>F8 Admin</h1>
+        </header>
+    </div>
+
+    <div class="body-container">
+        <h2 style="text-align: center">Members</h2>
+        <div class="table">
+            <div class="table-header">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="overlay">
+    <div class="dialog">
+        <div class="dialog__header">
+            <div class="dialog__header__title">New member</div>
+            <div class="dialog__header__icon">&times</div>
+        </div>
+        <div class="dialog__body">
+            <div class="dialog__body__input">
+                <input type="text"/>
+                <span>Skill</span>
+                <span class="icon">v</span>
+                <div class="dropdown">
+                    <div class="dropdown__item">Python</div>
+                    <div class="dropdown__item">JS</div>
+                </div>
+            </div>
+
+            <div class="dialog__body__input">
+                <input type="text"/>
+                <span>Name</span>
+            </div>
+            <div class="dialog__body__input">
+                <input type="text"/>
+                <span>Email</span>
+            </div>
+        </div>
+        <div class="dialog__action">
+            <button>Close</button>
+            <button>Save</button>
+        </div>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
