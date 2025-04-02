@@ -3,15 +3,15 @@ function isEven(number) {
     if (typeof number === 'number') {
         return number % 2 === 0;
     }
-    return "Not a number";
+    console.error("Not a number");
 }
 
 // Exercise 2
 function reverseString(str) {
     if (typeof str === 'string') {
-        return str.split("").reverse().join("").toString();
+        return str.split("").reverse().join("");
     }
-    return "Not a string";
+    console.error("Not a string");
 }
 
 // Exercise 3
@@ -25,7 +25,10 @@ function total() {
 
 // Exercise 4
 function isPrime(num) {
-    if (typeof num !== 'number') return "Not a number";
+    if (typeof num !== 'number'){
+        console.error("Not a number");
+        return;
+    }
     if (num <= 1 || num % 1 !== 0) return false;
 
     for (let i = 2; i <= num ** 0.5; i++) {
@@ -36,11 +39,21 @@ function isPrime(num) {
 
 // Exercise 5
 function findMaxNum(arr) {
-    if (!Array.isArray(arr)) return "Not an array";
+    if (!Array.isArray(arr)){
+        console.error("Not an array");
+        return;
+    }
+    if (arr.length === 0){
+        console.error("Empty array");
+        return;
+    }
 
     let max = arr[0];
     for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] !== 'number' || arr[i] % 1 !== 0) return "Not an array of integers";
+        if (typeof arr[i] !== 'number' || arr[i] % 1 !== 0){
+            console.error("Not an array of integers");
+            return;
+        }
         if (arr[i] > max) {
             max = arr[i];
         }
@@ -50,21 +63,29 @@ function findMaxNum(arr) {
 
 // Exercise 6
 function countVowels(str) {
-    if (typeof str !== 'string') return "Not a string";
+    if (typeof str !== 'string'){
+        console.error("Not a string");
+        return;
+    }
     const vowels = ['a', 'e', 'i', 'o', 'u'];
     let count = 0;
     for (let i = 0; i < str.length; i++) {
         if (vowels.includes(str[i])) count++;
     }
     return count;
-
 }
 
 // Exercise 7
 function removeDuplicates(arr) {
-    if (!Array.isArray(arr)) return "Not an array";
+    if (!Array.isArray(arr)){
+        console.error("Not an array");
+        return;
+    }
     for (let i = 0; i < arr.length; i++) {
-        if (typeof arr[i] !== 'number' || arr[i] % 1 !== 0) return "Not an array of integers";
+        if (typeof arr[i] !== 'number' || arr[i] % 1 !== 0){
+            console.error("Not an array of integers");
+            return;
+        }
     }
 
     return arr.filter((number, index, array) => {
@@ -74,14 +95,20 @@ function removeDuplicates(arr) {
 
 // Exercise 8
 function isSquare(n) {
-    if (typeof n !== 'number' || n < 0) return false;
+    if (typeof n !== 'number'){
+        console.error('Not a number');
+        return;
+    }
+    if (n < 0) return false;
     return (n ** 0.5) % 1 === 0;
 }
 
 // Exercise 9
 function deepClone(obj) {
-    if (typeof obj !== 'object') return "Not an object";
-    return structuredClone(obj);
+    if (typeof obj === 'object'){
+        return structuredClone(obj);
+    }
+    console.error("Not an object");
 }
 
 // Exercise 10
@@ -90,20 +117,16 @@ const orders = [
     {id: 101, customerId: 1, total: 200},
     {id: 102, customerId: 2, total: 150},
     {id: 103, customerId: 1, total: 300},
-    {id: 104, customerId: 3, total: 400},
     {id: 105, customerId: 2, total: 100}
 ];
 
-const customersObj = {};
 customers.forEach(customer => {
-    const customerOrders = orders.filter(order => order.customerId === customer.id);
-    customerOrders.sort((o1, o2) => o2.total - o1.total);
-
-    customersObj[customer.id] = customer = {...customer, orders: customerOrders};
+    const filteredOrders = orders.filter(order => order.customerId === customer.id);
+    filteredOrders.sort((o1, o2) => o2.total - o1.total);
+    customer.orders = filteredOrders;
 });
 
-const newCustomers = Array.of(customersObj);
-console.log(newCustomers);
+console.log(customers);
 
 
 
