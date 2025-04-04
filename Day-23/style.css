@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form {
+    width: 300px;
+    margin: 20px auto;
+}
+
+.form__field {
+    position: relative;
+}
+
+.form__field input {
+    height: 40px;
+    width: 100%;
+    padding: 5px 50px 5px 15px;
+
+    outline: 1px solid #cccccc;
+    border: none;
+    border-radius: 5px;
+}
+
+.form__field input:hover {
+    outline-color: #000000;
+}
+
+.form__field input:focus {
+    outline-color: #0000ff;
+}
+
+.form__field input + label {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    color: #aaaaaa;
+}
+
+.form__field input:focus + label, .form__field input.filled + label {
+    position: absolute;
+    top: -10px;
+    left: 10px;
+
+    background-color: #ffffff;
+    color: #0000ff;
+    font-size: 12px;
+    padding: 3px;
+}
+
+.form__field button {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    right: 30px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.form__field .toggle-btn {
+    right: 5px;
+}
+
+.form__field .clear-btn {
+    display: none;
+}
+
+.form__field button:hover {
+    background-color: #eeeeee;
+}
+
+input ~ ul {
+    list-style: none;
+    display: none;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+input:focus ~ ul {
+    display: block;
+}
+
+li {
+    padding: 5px 10px;
+    background-color: #ffffff;
+}
+
+li.option:hover {
+    background-color: #f0f0f0;
+    cursor: pointer;
+}
+
+li.no-option:hover {
+    background-color: #ffffff;
+}
+
+.highlight {
+    background-color: #cad0fb;
+}
+
+button[type="submit"] {
+    position: fixed;
+    top: 200px;
+    width: 200px;
+    height: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    border-radius: 5px;
+    background-color: #ffff00;
+    cursor: pointer;
+}
