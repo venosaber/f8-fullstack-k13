@@ -106,6 +106,7 @@ function createToDoItem(taskContent){
     const todoContent = document.createElement("div");
     todoContent.classList.add("todo-content");
     todoContent.textContent = taskContent;
+    todoItem.onclick = ()=> todoContent.classList.toggle("completed");
 
     const editButton = document.createElement("button");
     editButton.classList.add("edit-btn", "fa-solid", "fa-pen-to-square");

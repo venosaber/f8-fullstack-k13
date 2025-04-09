@@ -83,3 +83,9 @@ h1 {
     margin-left: auto;
     margin-right: 12px;
 }
+
+.completed{
+    text-decoration-line: line-through;
+    text-decoration-color: black;
+    color: rgba(255,255,255,0.5);
+}
