@@ -1,0 +1,129 @@
+/* reset CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.products-list{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #fffff0;
+    padding: 16px;
+    gap: 20px;
+}
+
+/* By default each row show 1 product*/
+:root {
+    --items-per-row: 1;
+}
+
+.product{
+    text-decoration: none;
+    background-color: #ffffff;
+    color: #000000;
+    margin-bottom: 10px;
+    padding: 10px;
+    outline: 1px solid #aaaaaa;
+    border-radius: 10px;
+    box-shadow: 5px 10px 5px #888888;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* there are n-1 gaps between n items */
+    flex-basis: calc((100% - (var(--items-per-row) - 1) * 20px)/ var(--items-per-row));
+}
+
+.product:hover{
+    transform: translateY(-8px);
+    box-shadow: 5px 15px 10px #666666;
+}
+
+.product__image{
+    height: 300px;
+}
+
+.product__image img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* ensure the ratio is not changed*/
+}
+
+.product__title{
+    margin-top: 10px;
+    height: 50px;
+    /* allow at most 2 lines of text*/
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.product__price{
+    margin-top: 5px;
+    color: #ff0000;
+    font-size: 28px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.product__description{
+    margin-top: 5px;
+    background-color: #f0f0f0;
+    padding: 5px;
+    border: 1px solid #aaaaaa;
+    border-radius: 5px;
+}
+
+.product__description p{
+    font-size: 14px;
+    color: #444444;
+    line-height: 1.5em;
+    /* allow at most 3 lines of text */
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+}
+
+.product__rating{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product__rating__average{
+    color: #0000ff;
+    font-weight: 600;
+}
+
+.product__rating__count{
+    color: #008000;
+    font-weight: 600;
+}
+
+/* responsive design */
+@media screen and (min-width: 576px) {
+    :root {
+        --items-per-row: 2;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    :root {
+        --items-per-row: 3;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    :root {
+        --items-per-row: 4;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    :root {
+        --items-per-row: 5;
+    }
+}
+
