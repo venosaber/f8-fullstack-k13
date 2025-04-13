@@ -13,11 +13,34 @@ function createTodoItem(rootE, data) {
     const todoContent = document.createElement("div");
     todoContent.textContent = title;
     todoContent.classList.add("todo-content");
-    if (completed) todoContent.classList.add("completed");
     todoItem.onclick = async () => {
-        await putData('todos', id, {id, title, completed: !completed}); // update to server
-        todoContent.classList.toggle("completed"); // update to UI
-    }
+        const currentUIState = todoContent.classList.contains("completed");
+        try {
+            // Update UI first for responsive UX
+            todoContent.classList.toggle("completed");
+            // Update to server
+            const updatedData = await putData('todos', id, {
+                id,
+                title,
+                completed: !currentUIState
+            });
+            // Ensure UI reflects state from server correctly
+            if (updatedData.completed) {
+                todoContent.classList.add("completed");
+            } else {
+                todoContent.classList.remove("completed");
+            }
+        } catch (error) {
+            // In case of error, restore the original state
+            if(completed){
+                todoContent.classList.add("completed");
+            }else{
+                todoContent.classList.remove("completed");
+            }
+            console.error("Update 'completed' state failed!", error);
+            alert("Update 'completed' state failed!. Please try again!."); // Notify users of the error
+        }
+    };
 
     const editButton = document.createElement("button");
     editButton.classList.add("edit-btn", "fa-solid", "fa-pen-to-square");
