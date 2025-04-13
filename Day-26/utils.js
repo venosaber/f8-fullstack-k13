@@ -13,6 +13,7 @@ function createTodoItem(rootE, data) {
     const todoContent = document.createElement("div");
     todoContent.textContent = title;
     todoContent.classList.add("todo-content");
+    if(completed) todoContent.classList.add("completed");
     todoItem.onclick = async () => {
         const currentUIState = todoContent.classList.contains("completed");
         try {
