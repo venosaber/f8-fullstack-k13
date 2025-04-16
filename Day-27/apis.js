@@ -62,7 +62,7 @@ async function onSignIn(email, password) {
         window.location.href = "post.html";
     } catch (error) {
         console.error("Error: ", error);
-        alert("Wrong email or password!")
+        alert("Sign-in failed. Please check your details or try again.")
     }
 }
 
@@ -94,9 +94,16 @@ async function onSignIn(email, password) {
 
  */
 async function getNewAccessToken() {
-    const {refresh} = loadTokens();
+    let {refresh} = loadTokens();
+    if (!refresh) {
+        console.error("No refresh token found.");
+        clearTokensAndRedirect();
+        throw new Error("Missing refresh token.");
+    }
+
+    let response;
     try {
-        const response = await fetch(`${baseUrl}/login/get_new_token/`, {
+        response = await fetch(`${baseUrl}/login/get_new_token/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -105,17 +112,34 @@ async function getNewAccessToken() {
         });
 
         if (!response.ok) {
-            throw new Error("Error while refreshing token");
+            // error 401 or 403 => redirect
+            if (response.status === 401 || response.status === 403) {
+                console.error(`Refresh token rejected by server with status ${response.status}`);
+                clearTokensAndRedirect();
+                throw new Error(`Refresh token rejected (Status: ${response.status})`);
+            } else {
+                // Other errors might just be temporary, so just need to throw to other functions
+                let errorDetail = `Status: ${response.status}`;
+                try {
+                    const errorData = await response.json();
+                    errorDetail += ` - ${JSON.stringify(errorData)}`;
+                } catch {/*ignore*/}
+                throw new Error(`Failed to refresh token. ${errorDetail}`);
+            }
+
+
         } else {
             const {access, refresh} = await response.json();
             saveTokens(access, refresh);
             console.log("Refresh tokens successfully!")
         }
     } catch (error) {
-        console.error("Error: ", error);
-        localStorage.removeItem("access");
-        localStorage.removeItem("refresh");
-        window.location.href = "index.html"; // redirect to sign in form
+        console.error("Error during token refresh process: ", error);
+        // for other errors apart from 401 and 403
+        if (!error.message.includes("Refresh token rejected")) {
+            throw error;
+        }
+        throw error;
     }
 }
 
@@ -175,12 +199,11 @@ async function getPostContent(rootE) {
             console.log("Access token is expired or invalid. Refreshing ...");
             try {
                 await getNewAccessToken();
-                await getPostContent(rootE); // try to get the post with new access token
+                window.location.reload(); // try to get the post with new access token
                 return;
             } catch (refreshError) {
-                // if failed in refreshing => getNewAccessToken will redirect
                 console.error("Failed to refresh token: ", refreshError);
-                rootE.textContent = "Session expired. Please log in again.";
+                rootE.textContent = "Could not refresh session. Please try reloading the page.";
                 return;
             }
         }
@@ -203,8 +226,17 @@ async function getPostContent(rootE) {
 
     } catch (error) {
         console.error("Error fetching post content: ", error);
-        rootE.textContent = "Failed to fetch post."
+        if(!rootE.textContent.includes("Could not refresh session")){
+            rootE.textContent = "Failed to fetch post."
+        }
     }
+}
+
+function clearTokensAndRedirect(){
+    console.log("Clearing tokens and redirecting to login.");
+    localStorage.removeItem("access");
+    localStorage.removeItem("refresh");
+    window.location.href = "index.html"; // redirect to sign in form
 }
 
 function saveTokens(access, refresh) {
