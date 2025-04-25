@@ -20,7 +20,6 @@ export default () => {
   return (
     <>
       <h1>Employee page</h1>
-      <FTable tableName="Employees" headers={headers} rows={employees}/>
     </>
   )
 }
