@@ -8,5 +8,5 @@ export default defineConfig({
     host: true,
     port: 3000,
   },
-  base: process.env.VITE_BASE_PATH || "/f8-fullstack-k13"
+  base: '/'
 })
