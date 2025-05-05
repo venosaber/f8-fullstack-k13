@@ -8,10 +8,11 @@ interface Props {
   headers: Header[];
   rows: any[];
   onEdit: (row: any) => void;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
+  width?: number;
 }
 
-export default ({tableName, headers, rows, onEdit, onDelete}: Props) => {
+export default ({tableName, headers, rows, onEdit, onDelete, width}: Props) => {
   const renderActionBtn = (headers: Header[], row: any) =>{
     const keys = headers.map(header => header.name);
     if(!keys.includes('action')) return;
@@ -26,7 +27,7 @@ export default ({tableName, headers, rows, onEdit, onDelete}: Props) => {
   return (
     <>
       <h2>{tableName}</h2>
-      <TableContainer component={Paper} sx={{width: 1400, margin: 'auto'}}>
+      <TableContainer component={Paper} sx={{width: width, margin: 'auto'}}>
         <Table>
           <TableHead>
             <TableRow>
