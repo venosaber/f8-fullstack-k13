@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 import './style.css'
-import type {ChangeEvent, FormEvent} from 'react';
+import type {ChangeEvent, FormEvent, FocusEvent} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 function RegistrationForm() {
@@ -21,6 +21,20 @@ function RegistrationForm() {
         password: '',
         confirmPassword: ''
     });
+
+    const [touched, setTouched] = useState({
+        name: false,
+        email: false,
+        password: false,
+        confirmPassword: false,
+    })
+
+    const handleBlur: (e: FocusEvent<HTMLInputElement>) => void = (e: FocusEvent<HTMLInputElement> ) => {
+        setTouched(prevTouched => ({
+            ...prevTouched,
+            [e.target.name]: true,
+        }))
+    }
 
     const validateEmail = (email: string) => {
         const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -90,8 +104,9 @@ function RegistrationForm() {
                         required
                         value={formData.name}
                         onChange={onChange}
-                        error={!formData.name.trim()}
-                        helperText={!formData.name.trim() ?"Vui lòng nhập tên của bạn.":""}
+                        onBlur={handleBlur}
+                        error={touched.name && !formData.name.trim()}
+                        helperText={touched.name && !formData.name.trim() ?"Vui lòng nhập tên của bạn.":""}
                     />
 
                     <TextField
@@ -103,8 +118,9 @@ function RegistrationForm() {
                         required
                         value={formData.email}
                         onChange={onChange}
-                        error={!validateEmail(formData.email)}
-                        helperText={!validateEmail(formData.email)
+                        onBlur={handleBlur}
+                        error={touched.email && !validateEmail(formData.email)}
+                        helperText={touched.email && !validateEmail(formData.email)
                                     ?"Địa chỉ email không hợp lệ.":''}
                     />
 
@@ -117,8 +133,9 @@ function RegistrationForm() {
                         required
                         value={formData.password}
                         onChange={onChange}
-                        error={!validatePassword()}
-                        helperText={!validatePassword()
+                        onBlur={handleBlur}
+                        error={touched.password && !validatePassword()}
+                        helperText={touched.password && !validatePassword()
                                     ?"Mật khẩu phải có ít nhất 6 kí tự.":''}
                     />
 
@@ -131,16 +148,17 @@ function RegistrationForm() {
                         required
                         value={formData.confirmPassword}
                         onChange={onChange}
-                        error={!validateConfirmPassword()}
-                        helperText={!formData.confirmPassword
+                        onBlur={handleBlur}
+                        error={touched.confirmPassword && !validateConfirmPassword()}
+                        helperText={touched.confirmPassword && !formData.confirmPassword
                             ?"Vui lòng nhập lại mật khẩu"
-                            :(formData.password !== formData.confirmPassword)
+                            :(touched.confirmPassword && formData.password !== formData.confirmPassword)
                                 ?"Mật khẩu nhập lại không khớp."
                                 :""
                     }
                     />
 
-                    {/* Nút bấm */}
+                    {/* Buttons */}
                     <Grid container spacing={2} sx={{ mt: 2 }}>
                         <Grid size={{xs: 6}}>
                             <Button
