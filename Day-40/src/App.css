@@ -1,0 +1,103 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container{
+  margin: auto;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
+  max-width: 600px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* add menu */
+.add-menu{
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-menu input{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+}
+
+.add-menu button{
+  padding: 10px 15px;
+  background-color: #000;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* task list */
+.task-list{
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li{
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* inline edit input */
+.task-list li input{
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 5px;
+  outline: none;
+  font-size: 16px;
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+/* task action buttons */
+.task-list li button{
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.update-btn{
+  margin-right: 5px;
+  background-color: #28a745;
+}
+
+.cancel-btn{
+  background-color: #6c757d;
+}
+
+.edit-btn{
+  margin-right: 5px;
+  background-color: #007bff;
+}
+
+.delete-btn{
+  background-color: #ff0000;
+}
