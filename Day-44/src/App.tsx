@@ -16,6 +16,7 @@ function App() {
     const {id, question, options, answer} = curQuestion;
 
     const onAnswer = () => {
+        if(selectedOption === null) return;
         dispatch(showAnswer())
     }
 
@@ -93,7 +94,7 @@ function App() {
                 <div className={'quiz-buttons'}>
                     <button type={'button'}
                             onClick={onAnswer}
-                            disabled={isAnswerShown || timeLeft === 0}     // only allowing to submit answers once
+                            disabled={selectedOption === null || isAnswerShown || timeLeft === 0}     // only allowing to submit answers once
                             className={'confirm-btn'}
                     >
                         Đây là câu trả lời cuối cùng của tôi

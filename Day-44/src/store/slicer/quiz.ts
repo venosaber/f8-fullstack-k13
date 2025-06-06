@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 import {questions} from '../data.ts'
-import type {State, Action} from '../../utils'
+import type {State, Action, Question} from '../../utils'
 
 const initialState: State = {
     currentQuestionIndex: 0,
@@ -19,11 +19,12 @@ const quizSlice = createSlice({
             state.selectedOption = action.payload
         },
         showAnswer: (state: State)=>{
-            state.isAnswerShown = true;
+            if(state.selectedOption === null) return; // do nothing if there is no selected option yet
 
+            state.isAnswerShown = true;
             const {currentQuestionIndex, score, selectedOption, questions} = state;
-            const currentQuestion = questions[currentQuestionIndex];
-            const correctAnswer = currentQuestion.answer;
+            const currentQuestion: Question = questions[currentQuestionIndex];
+            const correctAnswer: string = currentQuestion.answer;
             if(selectedOption === correctAnswer){
                 state.score = score + 1;
             }
