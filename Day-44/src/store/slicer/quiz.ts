@@ -19,7 +19,6 @@ const quizSlice = createSlice({
             state.selectedOption = action.payload
         },
         showAnswer: (state: State)=>{
-            if(state.selectedOption === null) return; // do nothing if there is no selected option yet
 
             state.isAnswerShown = true;
             const {currentQuestionIndex, score, selectedOption, questions} = state;
