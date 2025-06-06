@@ -40,7 +40,8 @@ function App() {
 
     useEffect(() => {
         if (timeLeft === 0) {
-            dispatch(showAnswer());
+            // avoid calling showAnswer() twice
+            if(!isAnswerShown) dispatch(showAnswer());
             // let user see the result before move to next question automatically
             setTimeout(() => {
                 dispatch(nextQuestion());
@@ -52,7 +53,7 @@ function App() {
             dispatch(countDown())
         }, 1000)
         return () => clearInterval(interval);
-    }, [timeLeft, dispatch])
+    }, [isAnswerShown, timeLeft, dispatch])
 
     return (
         <>
