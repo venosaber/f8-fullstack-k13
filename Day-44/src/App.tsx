@@ -53,7 +53,7 @@ function App() {
             dispatch(countDown())
         }, 1000)
         return () => clearInterval(interval);
-    }, [isAnswerShown, timeLeft, dispatch])
+    }, [timeLeft, dispatch])
 
     return (
         <>
@@ -105,7 +105,7 @@ function App() {
                         currentQuestionIndex < questions.length - 1 &&
                         <button type={'button'} className={'next-btn'}
                                    onClick={onMoveForward}
-                                   disabled={!isAnswerShown}
+                                   disabled={!isAnswerShown || timeLeft === 0}
                         >Tiếp theo</button>
                     }
 
