@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router";
 import Product from '../pages/Product'
-import Employee from '../pages/Employee'
+// import Employee from '../pages/Employee'
 // import Order from '../pages/Order'
 // import OrderDetail from '../pages/Order/details'
 import Color from '../pages/Color'
@@ -27,10 +27,10 @@ const router = createBrowserRouter([
     path: "/product",
     element: <Product/>,
   },
-  {
-    path: "/employee",
-    element: <Employee/>,
-  },
+  // {
+  //   path: "/employee",
+  //   element: <Employee/>,
+  // },
 ]);
 
 export default router
