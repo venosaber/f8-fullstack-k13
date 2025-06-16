@@ -1,0 +1,13 @@
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+
+    ports:
+      - "3500:3500"
+    volumes:
+      # map code to have hot-reloading
+      - "./web:/app/web"
+      # protect node_modules inside the container from being rewritten
+      - "/app/web/node_modules"
