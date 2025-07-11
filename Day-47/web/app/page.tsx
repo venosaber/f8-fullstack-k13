@@ -3,7 +3,7 @@
 
 export default function Home() {
   return (
-      <h1>Hello baby!</h1>
+      <h1>Hello baby girl!</h1>
     // <div className={styles.page}>
     //   <main className={styles.main}>
     //     <Image
