@@ -1,0 +1,26 @@
+services:
+  api:
+    container_name: day-55-api
+    image: node:22.9.0
+    working_dir: /app/api
+    volumes:
+      - './api:/app/api'
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      - db
+    command: ['npm','run','start:dev']
+
+  db:
+    container_name: day-55-db
+    image: postgres:16
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=default
+    ports:
+      - '5004:5432'
+    volumes:
+      - './db:/var/lib/postgresql/data'
