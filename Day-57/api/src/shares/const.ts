@@ -1,0 +1,30 @@
+export const DATA_SOURCE = Symbol('DATA_SOURCE');
+
+export const AnswerServiceToken = Symbol('AnswerServiceI');
+export const ClassServiceToken = Symbol('ClassServiceI');
+export const ClassUserServiceToken = Symbol('ClassUserServiceI');
+export const ExamServiceToken = Symbol('ExamServiceI');
+export const ExamGroupServiceToken = Symbol('ExamGroupServiceI');
+export const ExamResultServiceToken = Symbol('ExamResultServiceI');
+export const FileServiceToken = Symbol('FileServiceI');
+export const JobServiceToken = Symbol('JobServiceI');
+export const QuestionServiceToken = Symbol('QuestionServiceI');
+export const SubjectServiceToken = Symbol('SubjectServiceI');
+export const TopicServiceToken = Symbol('TopicServiceI');
+export const UserServiceToken = Symbol('UserServiceI');
+export const TeacherServiceToken = Symbol('TeacherServiceI');
+export const StudentServiceToken = Symbol('StudentServiceI');
+export const InvitationServiceToken = Symbol('InvitationServiceToken');
+
+export const AnswerEntityRepository = Symbol('AnswerEntityRepository');
+export const UserEntityRepository = Symbol('UserEntityRepository');
+export const ClassUserEntityRepository = Symbol('ClassUserEntityRepository');
+export const ClassEntityRepository = Symbol('ClassEntityRepository');
+export const ExamEntityRepository = Symbol('ExamEntityRepository');
+export const ExamGroupEntityRepository = Symbol('ExamGroupEntityRepository');
+export const ExamResultEntityRepository = Symbol('ExamResultEntityRepository');
+export const FileEntityRepository = Symbol('FileEntityRepository');
+export const JobEntityRepository = Symbol('JobEntityRepository');
+export const QuestionEntityRepository = Symbol('QuestionEntityRepository');
+export const SubjectEntityRepository = Symbol('SubjectEntityRepository');
+export const TopicEntityRepository = Symbol('TopicEntityRepository');
